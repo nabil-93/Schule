@@ -1,0 +1,1045 @@
+{
+  "app": {
+    "name": "Tableau de Bord Scolaire",
+    "tagline": "Plateforme de gestion scolaire d'entreprise"
+  },
+  "nav": {
+    "overview": "Aperçu",
+    "students": "Élèves",
+    "teachers": "Enseignants",
+    "classes": "Classes",
+    "schedule": "Emploi du temps",
+    "attendance": "Présence",
+    "exams": "Examens",
+    "grades": "Notes & bulletins",
+    "finance": "Finance",
+    "communication": "Communication",
+    "users": "Gestion des utilisateurs",
+    "activity": "Journal d’activité",
+    "profile": "Profil",
+    "settings": "Paramètres"
+  },
+  "topbar": {
+    "search": "Rechercher élèves, classes, enseignants…",
+    "notifications": "Notifications",
+    "profile": "Mon profil",
+    "logout": "Se déconnecter",
+    "language": "Langue",
+    "themeLight": "Clair",
+    "themeDark": "Sombre",
+    "toggleTheme": "Changer de thème"
+  },
+  "languages": {
+    "fr": "Français",
+    "en": "Anglais",
+    "de": "Allemand",
+    "ar": "Arabe"
+  },
+  "overview": {
+    "title": "Aperçu du tableau de bord",
+    "loadError": "Échec du chargement des données.",
+    "kpi": {
+      "students": "Élèves inscrits",
+      "revenue": "Revenu ce mois-ci",
+      "attendance": "Taux de présence",
+      "gradeAvg": "Moyenne générale"
+    },
+    "charts": {
+      "payments": {
+        "title": "Paiements mensuels",
+        "subtitle": "6 derniers mois",
+        "paid": "Payé",
+        "pending": "En attente",
+        "overdue": "En retard"
+      },
+      "subjects": {
+        "title": "Moyennes par matière",
+        "subtitle": "Pondéré par coefficient — /20",
+        "label": "Moyenne /20"
+      },
+      "mentions": {
+        "title": "Performance des élèves",
+        "subtitle": "Répartition des mentions"
+      }
+    },
+    "activity": {
+      "title": "Activité récente",
+      "subtitle": "Derniers paiements, examens et inscriptions",
+      "invoicePaid": "Facture payée",
+      "examCreated": "Examen programmé",
+      "studentEnrolled": "Nouvel élève"
+    },
+    "mini": {
+      "activeStudents": "Élèves actifs",
+      "totalRevenue": "Total encaissé",
+      "pendingInvoices": "Factures en attente",
+      "overdueInvoices": "Factures en retard"
+    },
+    "empty": {
+      "payments": "Aucune facture",
+      "subjects": "Aucun résultat d'examen",
+      "grades": "Aucune note",
+      "activity": "Rien à afficher"
+    }
+  },
+  "roleOverview": {
+    "teacher": {
+      "greeting": "Bienvenue, {name}",
+      "subtitle": "Vos classes, élèves et examens à venir.",
+      "kpi": {
+        "myStudents": "Mes élèves",
+        "myClasses": "Mes classes",
+        "upcomingExams": "Examens à venir",
+        "avgGrade": "Moyenne"
+      },
+      "upcomingExams": "Examens à venir",
+      "recentExams": "Examens récents",
+      "noUpcomingExams": "Aucun examen à venir",
+      "noRecentExams": "Aucun examen récent",
+      "todaySchedule": "Mon emploi du temps aujourd'hui",
+      "noSessionsToday": "Aucune séance aujourd'hui"
+    },
+    "student": {
+      "greeting": "Bonjour, {name}",
+      "subtitle": "Vos notes, assiduité et examens à venir.",
+      "kpi": {
+        "attendance": "Assiduité",
+        "gradeAvg": "Moyenne /20",
+        "nextExam": "Prochain examen",
+        "pending": "Frais en attente"
+      },
+      "upcomingExams": "Examens à venir",
+      "recentResults": "Résultats récents",
+      "invoices": "Factures",
+      "noUpcomingExams": "Aucun examen à venir",
+      "noResults": "Aucun résultat",
+      "noInvoices": "Aucune facture",
+      "due": "Échéance",
+      "todaySchedule": "Mon emploi du temps aujourd'hui",
+      "noSessionsToday": "Aucune séance aujourd'hui"
+    },
+    "parent": {
+      "greeting": "Bonjour, {name}",
+      "subtitle": "Aperçu des progrès de vos enfants.",
+      "kpi": {
+        "children": "Enfants",
+        "avgAttendance": "Assiduité moy.",
+        "avgGrade": "Moyenne",
+        "pending": "Frais en attente"
+      },
+      "noChildren": "Aucun enfant associé",
+      "noChildrenHint": "Contactez l'administration pour associer vos enfants.",
+      "stat": {
+        "attendance": "Assiduité",
+        "grade": "Note",
+        "pending": "En attente"
+      },
+      "examsTaken": "examens passés",
+      "invoicesPending": "en attente"
+    }
+  },
+  "students": {
+    "title": "Gestion des élèves",
+    "subtitle": "Ajoutez, modifiez et supprimez les élèves inscrits.",
+    "add": "Ajouter un élève",
+    "edit": "Modifier l'élève",
+    "searchPlaceholder": "Rechercher nom, email, classe…",
+    "allClasses": "Toutes les classes",
+    "allStatuses": "Tous les statuts",
+    "allFees": "Tous les frais",
+    "noResults": "Aucun élève trouvé",
+    "noResultsHint": "Essayez d'ajuster votre recherche ou ajoutez un nouvel élève.",
+    "deleteTitle": "Supprimer l'élève",
+    "deleteMessage": "Cette action est irréversible. Voulez-vous vraiment supprimer cet élève ?",
+    "capacityFull": "Classe complète",
+    "loadError": "Impossible de charger les élèves.",
+    "saveError": "Impossible d'enregistrer les modifications.",
+    "deleteError": "Impossible de supprimer l'élève.",
+    "serviceRoleMissing": "Configuration incomplète : ajoutez SUPABASE_SERVICE_ROLE_KEY dans .env.local pour créer ou supprimer des élèves.",
+    "forbidden": "Action réservée aux administrateurs.",
+    "columns": {
+      "student": "Élève",
+      "class": "Classe",
+      "parent": "Parent",
+      "attendance": "Présence",
+      "fees": "Frais",
+      "status": "Statut",
+      "actions": "Actions"
+    },
+    "fields": {
+      "fullName": "Nom complet",
+      "email": "Email",
+      "parentName": "Nom du parent",
+      "parentEmail": "Email du parent",
+      "parentEmailHint": "Liera automatiquement l'élève au compte parent (optionnel)",
+      "class": "Classe",
+      "dateOfBirth": "Date de naissance",
+      "admissionNo": "N° d'admission",
+      "attendanceRate": "Taux de présence (%)",
+      "feesStatus": "Statut des frais",
+      "status": "Statut de l'élève",
+      "unassigned": "Non assigné"
+    },
+    "feesValues": {
+      "paid": "Payé",
+      "due": "En retard",
+      "partial": "Partiel"
+    },
+    "statusValues": {
+      "active": "Actif",
+      "new": "Nouveau",
+      "scholarship": "Boursier",
+      "inactive": "Inactif"
+    },
+    "import": {
+      "button": "Importer CSV",
+      "title": "Importer des élèves depuis un CSV",
+      "hint": "Téléversez un fichier CSV. Téléchargez le modèle pour voir le format attendu.",
+      "downloadTemplate": "Télécharger le modèle",
+      "dropHint": "Sélectionnez un fichier CSV pour commencer.",
+      "chooseFile": "Choisir un fichier",
+      "headersHint": "Colonnes attendues : {headers}",
+      "validCount": "{count} lignes valides",
+      "invalidCount": "{count} invalides",
+      "importButton": "Importer {count} élèves",
+      "missingHeader": "Colonne obligatoire manquante : {header}",
+      "col": {
+        "name": "Nom",
+        "email": "Email",
+        "class": "Classe",
+        "status": "Statut",
+        "error": "Erreur"
+      },
+      "result": {
+        "summary": "{created} créés · {failed} échoués"
+      },
+      "errors": {
+        "missingName": "full_name manquant",
+        "missingEmail": "email manquant",
+        "invalidEmail": "Email invalide",
+        "duplicateEmail": "Email en doublon",
+        "unknownClass": "class_id inconnu",
+        "invalidAttendance": "Assiduité doit être 0–100",
+        "invalidFees": "fees_status invalide",
+        "invalidStatus": "status invalide",
+        "invalidDate": "Date doit être AAAA-MM-JJ"
+      }
+    },
+    "detail": {
+      "back": "Retour aux élèves",
+      "information": "Informations",
+      "address": "Adresse",
+      "enrolledOn": "Inscrit le",
+      "bio": "Biographie",
+      "gradeAverage": "Moyenne générale",
+      "noResults": "Aucun résultat d'examen",
+      "basedOnResults": "Basé sur {count} résultats",
+      "parents": "Parents et tuteurs",
+      "noParents": "Aucun parent lié",
+      "noParentsHint": "Liez un compte parent à cet élève.",
+      "primaryContact": "Contact principal",
+      "recentResults": "Résultats récents",
+      "subject": "Matière",
+      "type": "Type",
+      "date": "Date",
+      "score": "Note",
+      "invoices": "Factures",
+      "noInvoices": "Aucune facture",
+      "issuedAt": "Émise",
+      "dueDate": "Échéance",
+      "amount": "Montant"
+    }
+  },
+  "teachers": {
+    "title": "Gestion des enseignants",
+    "subtitle": "Ajoutez, modifiez et supprimez les enseignants.",
+    "add": "Ajouter un enseignant",
+    "edit": "Modifier l'enseignant",
+    "searchPlaceholder": "Rechercher nom, spécialisation…",
+    "allStatuses": "Tous les statuts",
+    "noResults": "Aucun enseignant trouvé",
+    "deleteTitle": "Supprimer l'enseignant",
+    "deleteMessage": "Cette action est irréversible. Voulez-vous vraiment supprimer cet enseignant ?",
+    "columns": {
+      "teacher": "Enseignant",
+      "email": "Email",
+      "classes": "Classes",
+      "employeeNo": "N° employé",
+      "specialization": "Spécialisation",
+      "joinDate": "Date d'entrée",
+      "status": "Statut",
+      "actions": "Actions"
+    },
+    "fields": {
+      "fullName": "Nom complet",
+      "email": "Email",
+      "phone": "Téléphone",
+      "employeeNo": "N° employé",
+      "specialization": "Spécialisation",
+      "joinDate": "Date d'entrée",
+      "status": "Statut"
+    },
+    "statusValues": {
+      "active": "Actif",
+      "leave": "En congé",
+      "inactive": "Inactif"
+    },
+    "detail": {
+      "back": "Retour aux enseignants",
+      "notFound": "Enseignant introuvable",
+      "notFoundHint": "Cet enseignant a peut-être été supprimé.",
+      "information": "Informations",
+      "overview": "Aperçu",
+      "homeroomCount": "Classes principales",
+      "sessionsCount": "Séances hebdo",
+      "subjectsCount": "Matières",
+      "homeroomClasses": "Classes principales",
+      "noHomeroom": "Aucune classe principale",
+      "noHomeroomHint": "Cet enseignant n'est pas professeur principal.",
+      "weeklySchedule": "Emploi du temps",
+      "rooms": "Salles utilisées"
+    }
+  },
+  "classes": {
+    "title": "Gestion des classes",
+    "subtitle": "Organisez les classes et leur capacité.",
+    "add": "Ajouter une classe",
+    "edit": "Modifier la classe",
+    "searchPlaceholder": "Rechercher nom ou niveau…",
+    "capacity": "Capacité",
+    "occupancy": "Occupation",
+    "full": "Complète",
+    "available": "Places disponibles",
+    "students": "élèves",
+    "homeroomTeacher": "Professeur principal",
+    "unassigned": "Non assigné",
+    "noResults": "Aucune classe trouvée",
+    "deleteTitle": "Supprimer la classe",
+    "deleteMessage": "Cette action est irréversible. Voulez-vous vraiment supprimer cette classe ?",
+    "deleteBlockedTitle": "Suppression impossible",
+    "deleteBlockedMessage": "Cette classe contient {count} élève(s). Réaffectez-les avant de la supprimer.",
+    "fields": {
+      "name": "Nom de la classe",
+      "level": "Niveau",
+      "room": "Salle",
+      "capacity": "Capacité",
+      "homeroomTeacher": "Professeur principal",
+      "academicYear": "Année académique"
+    },
+    "detail": {
+      "back": "Retour aux classes",
+      "notFound": "Classe introuvable",
+      "notFoundHint": "Cette classe a peut-être été supprimée.",
+      "information": "Informations",
+      "subjects": "Matières enseignées",
+      "students": "Élèves",
+      "noStudents": "Aucun élève dans cette classe",
+      "noStudentsHint": "Inscrivez des élèves depuis la page élèves.",
+      "weeklySchedule": "Emploi du temps",
+      "assignedTeachers": "Enseignants assignés",
+      "noTeachers": "Aucun enseignant disponible",
+      "noTeachersHint": "Ajoutez des enseignants depuis la page enseignants.",
+      "save": "Enregistrer",
+      "saving": "Enregistrement…",
+      "saved": "Enregistré"
+    }
+  },
+  "parents": {
+    "title": "Parents",
+    "loadError": "Impossible de charger le parent.",
+    "fields": {
+      "email": "Email",
+      "phone": "Téléphone",
+      "occupation": "Profession",
+      "address": "Adresse"
+    },
+    "detail": {
+      "back": "Retour",
+      "information": "Informations",
+      "memberSince": "Membre depuis",
+      "bio": "Biographie",
+      "children": "Enfants",
+      "noChildren": "Aucun enfant lié",
+      "noChildrenHint": "Liez ce parent à un élève.",
+      "primaryContact": "Contact principal"
+    }
+  },
+  "rooms": {
+    "title": "Salles",
+    "detail": {
+      "back": "Retour",
+      "subtitle": "{classes} classes · {sessions} séances",
+      "notFound": "Salle non utilisée",
+      "notFoundHint": "Aucune classe ni séance ne référence cette salle.",
+      "classes": "Classes attribuées",
+      "noClasses": "Aucune classe attribuée",
+      "subjects": "Matières enseignées",
+      "weeklySchedule": "Emploi du temps"
+    }
+  },
+  "schedule": {
+    "title": "Emploi du temps",
+    "subtitle": "Planifiez les séances hebdomadaires par classe ou enseignant.",
+    "add": "Ajouter une séance",
+    "edit": "Modifier la séance",
+    "allClasses": "Toutes les classes",
+    "allTeachers": "Tous les enseignants",
+    "empty": "Aucune séance planifiée",
+    "deleteTitle": "Supprimer la séance",
+    "deleteMessage": "Cette action est irréversible. Supprimer cette séance ?",
+    "unassigned": "Non assigné",
+    "days": {
+      "mon": "Lundi",
+      "tue": "Mardi",
+      "wed": "Mercredi",
+      "thu": "Jeudi",
+      "fri": "Vendredi",
+      "sat": "Samedi",
+      "sun": "Dimanche"
+    },
+    "daysShort": {
+      "mon": "Lun",
+      "tue": "Mar",
+      "wed": "Mer",
+      "thu": "Jeu",
+      "fri": "Ven",
+      "sat": "Sam",
+      "sun": "Dim"
+    },
+    "todaySchedule": "Mon emploi du temps aujourd'hui",
+    "noSessionsToday": "Aucune séance aujourd'hui",
+    "fields": {
+      "day": "Jour",
+      "startTime": "Début",
+      "endTime": "Fin",
+      "subject": "Matière",
+      "teacher": "Enseignant",
+      "class": "Classe",
+      "room": "Salle"
+    }
+  },
+  "exams": {
+    "title": "Examens et résultats",
+    "subtitle": "Gérez les examens et suivez les résultats des élèves.",
+    "add": "Ajouter un examen",
+    "edit": "Modifier l'examen",
+    "searchPlaceholder": "Rechercher matière…",
+    "allClasses": "Toutes les classes",
+    "allTypes": "Tous les types",
+    "noResults": "Aucun examen trouvé",
+    "deleteTitle": "Supprimer l'examen",
+    "deleteMessage": "Cette action est irréversible. Supprimer cet examen et ses résultats ?",
+    "viewResults": "Voir les résultats",
+    "resultsTitle": "Résultats",
+    "averageScore": "Moyenne",
+    "noStudentsHint": "Aucun élève dans cette classe.",
+    "submitted": "saisies",
+    "columns": {
+      "subject": "Matière",
+      "class": "Classe",
+      "date": "Date",
+      "type": "Type",
+      "totalPoints": "Total",
+      "average": "Moyenne",
+      "actions": "Actions",
+      "student": "Élève",
+      "score": "Note"
+    },
+    "fields": {
+      "subject": "Matière",
+      "class": "Classe",
+      "date": "Date",
+      "type": "Type",
+      "totalPoints": "Total des points",
+      "coefficient": "Coefficient"
+    },
+    "typeValues": {
+      "quiz": "Contrôle",
+      "midterm": "Mi-parcours",
+      "final": "Final"
+    },
+    "loadError": "Impossible de charger les examens.",
+    "saveError": "Impossible d'enregistrer l'examen.",
+    "scoreError": "Impossible d'enregistrer la note.",
+    "forbidden": "Action réservée aux administrateurs."
+  },
+  "attendance": {
+    "title": "Présence",
+    "subtitle": "Enregistrer la présence quotidienne par classe.",
+    "historyTitle": "Historique de présence",
+    "historySubtitle": "Relevés de présence quotidiens.",
+    "class": "Classe",
+    "date": "Date",
+    "child": "Enfant",
+    "save": "Enregistrer la présence",
+    "markAllPresent": "Tout marquer présent",
+    "savedAt": "Enregistré à {time}",
+    "notePlaceholder": "Note (facultative)…",
+    "selectAtLeastOne": "Sélectionnez un statut pour au moins un élève.",
+    "attendanceRate": "Taux de présence",
+    "noClassesTitle": "Aucune classe disponible",
+    "noClassesHint": "Aucune classe ne vous est assignée pour l'instant.",
+    "noStudentsTitle": "Aucun élève dans cette classe",
+    "noStudentsHint": "Ajoutez des élèves pour enregistrer la présence.",
+    "noSubjectsTitle": "Rien à afficher",
+    "noSubjectsHint": "Aucun relevé de présence disponible pour le moment.",
+    "noRecordsTitle": "Aucune présence encore",
+    "noRecordsHint": "Les relevés apparaîtront ici dès qu'ils seront saisis.",
+    "status": {
+      "present": "Présent",
+      "absent": "Absent",
+      "late": "En retard",
+      "excused": "Excusé"
+    }
+  },
+  "grades": {
+    "title": "Notes & bulletins",
+    "subtitle": "Moyennes pondérées par matière et bulletins par élève.",
+    "searchPlaceholder": "Rechercher un élève…",
+    "chooseClass": "Sélectionnez une classe pour voir les moyennes.",
+    "noStudents": "Aucun élève dans cette classe.",
+    "noScoresYet": "Aucune note enregistrée pour le moment.",
+    "noExams": "Aucun examen pour cette classe.",
+    "noClass": "Sans classe",
+    "viewReport": "Voir le bulletin",
+    "reportTitle": "Bulletin",
+    "overall": "Moyenne générale",
+    "subjectsTitle": "Moyennes par matière",
+    "examsTitle": "Détail des examens",
+    "loadError": "Impossible de charger les notes.",
+    "kpi": {
+      "classAverage": "Moyenne de classe",
+      "students": "Élèves",
+      "exams": "Examens"
+    },
+    "fields": {
+      "class": "Classe"
+    },
+    "columns": {
+      "rank": "Rang",
+      "student": "Élève",
+      "taken": "Examens passés",
+      "average": "Moyenne",
+      "mention": "Appréciation",
+      "actions": "Actions",
+      "subject": "Matière",
+      "coefficient": "Coef.",
+      "examCount": "Examens",
+      "type": "Type",
+      "date": "Date",
+      "score": "Note",
+      "normalized": "Sur 20"
+    },
+    "mentions": {
+      "excellent": "Très bien",
+      "good": "Bien",
+      "fair": "Assez bien",
+      "pass": "Passable",
+      "fail": "Insuffisant"
+    }
+  },
+  "finance": {
+    "title": "Finance et facturation",
+    "subtitle": "Suivez les factures et les encaissements.",
+    "add": "Nouvelle facture",
+    "edit": "Modifier la facture",
+    "searchPlaceholder": "Rechercher élève ou note…",
+    "allStatuses": "Tous les statuts",
+    "noResults": "Aucune facture trouvée",
+    "deleteTitle": "Supprimer la facture",
+    "deleteMessage": "Cette action est irréversible. Supprimer cette facture ?",
+    "markPaid": "Marquer payé",
+    "currency": "€",
+    "loadError": "Impossible de charger les factures.",
+    "saveError": "Impossible d'enregistrer la facture.",
+    "deleteError": "Impossible de supprimer la facture.",
+    "forbidden": "Action réservée aux administrateurs.",
+    "kpi": {
+      "totalRevenue": "Revenu total",
+      "paid": "Encaissé",
+      "pending": "En attente",
+      "overdue": "En retard"
+    },
+    "columns": {
+      "student": "Élève",
+      "amount": "Montant",
+      "issuedAt": "Émise le",
+      "dueDate": "Échéance",
+      "status": "Statut",
+      "paidAt": "Payée le",
+      "note": "Note",
+      "actions": "Actions"
+    },
+    "fields": {
+      "student": "Élève",
+      "amount": "Montant",
+      "issuedAt": "Date d'émission",
+      "dueDate": "Date d'échéance",
+      "paidAt": "Date de paiement",
+      "status": "Statut",
+      "note": "Note"
+    },
+    "statusValues": {
+      "paid": "Payée",
+      "pending": "En attente",
+      "overdue": "En retard"
+    },
+    "tabs": {
+      "invoices": "Factures",
+      "monthly": "Suivi mensuel",
+      "expenses": "Dépenses"
+    },
+    "monthly": {
+      "title": "Suivi mensuel",
+      "subtitle": "Revenus et dépenses par mois.",
+      "year": "Année",
+      "totals": "Totaux",
+      "chartTitle": "Factures par mois",
+      "kpi": {
+        "collected": "Encaissé",
+        "expenses": "Dépenses",
+        "net": "Net",
+        "collectionRate": "Taux de recouvrement"
+      },
+      "columns": {
+        "month": "Mois",
+        "paid": "Payé",
+        "pending": "En attente",
+        "overdue": "En retard",
+        "expenses": "Dépenses",
+        "net": "Net",
+        "collectionRate": "Recouvrement"
+      }
+    },
+    "expenses": {
+      "title": "Dépenses",
+      "subtitle": "Suivi des charges et coûts d'exploitation.",
+      "add": "Ajouter une dépense",
+      "edit": "Modifier la dépense",
+      "deleteTitle": "Supprimer la dépense",
+      "deleteMessage": "Action irréversible. Supprimer cette dépense ?",
+      "noResults": "Aucune dépense trouvée",
+      "searchPlaceholder": "Rechercher description ou catégorie…",
+      "allCategories": "Toutes les catégories",
+      "filters": {
+        "from": "Du",
+        "to": "Au"
+      },
+      "kpi": {
+        "monthTotal": "Ce mois",
+        "allTotal": "Total",
+        "topCategory": "Catégorie principale"
+      },
+      "columns": {
+        "date": "Date",
+        "category": "Catégorie",
+        "description": "Description",
+        "amount": "Montant",
+        "actions": "Actions"
+      },
+      "fields": {
+        "category": "Catégorie",
+        "amount": "Montant",
+        "expenseDate": "Date",
+        "description": "Description"
+      },
+      "categories": {
+        "salaries": "Salaires",
+        "rent": "Loyer",
+        "utilities": "Charges",
+        "supplies": "Fournitures",
+        "maintenance": "Maintenance",
+        "transport": "Transport",
+        "other": "Autre"
+      },
+      "errors": {
+        "invalidAmount": "Le montant doit être un nombre positif.",
+        "missingDate": "Veuillez sélectionner une date.",
+        "saveError": "Échec de l'enregistrement de la dépense.",
+        "forbidden": "Action réservée aux administrateurs."
+      }
+    }
+  },
+  "communication": {
+    "title": "Communication",
+    "subtitle": "Annonces, messagerie interne et tickets d'assistance.",
+    "tabs": {
+      "announcements": "Annonces",
+      "messages": "Messagerie",
+      "tickets": "Tickets"
+    },
+    "announcements": {
+      "add": "Nouvelle annonce",
+      "edit": "Modifier l'annonce",
+      "deleteTitle": "Supprimer l'annonce",
+      "deleteMessage": "Cette action est irréversible. Supprimer cette annonce ?",
+      "empty": "Aucune annonce",
+      "emptyHint": "Créez votre première annonce pour informer vos équipes.",
+      "searchPlaceholder": "Rechercher une annonce…",
+      "pinned": "Épinglée",
+      "pin": "Épingler",
+      "unpin": "Détacher",
+      "audienceLabel": "Cible",
+      "allAudiences": "Toutes les cibles",
+      "unreadOnly": "Non lues uniquement",
+      "new": "Nouveau",
+      "expired": "Expirée",
+      "expiresOn": "Expire le {date}",
+      "postedBy": "par",
+      "backToList": "Retour aux annonces",
+      "attachment": "Pièce jointe",
+      "attachmentError": "Impossible de charger la pièce jointe.",
+      "loadingAttachment": "Chargement de la pièce jointe…",
+      "download": "Télécharger",
+      "chooseFile": "Choisir un fichier",
+      "removeAttachment": "Supprimer la pièce jointe",
+      "noClasses": "Aucune classe disponible pour le moment.",
+      "audience": {
+        "all": "Tout le monde",
+        "teachers": "Enseignants",
+        "students": "Élèves",
+        "parents": "Parents",
+        "staff": "Personnel",
+        "classes": "Classes spécifiques"
+      },
+      "fields": {
+        "title": "Titre",
+        "body": "Message",
+        "audience": "Cible",
+        "pinned": "Épingler en haut",
+        "publishedAt": "Date de publication",
+        "expiresAt": "Date d'expiration (optionnel)",
+        "targetClasses": "Classes ciblées",
+        "attachment": "Pièce jointe"
+      },
+      "errors": {
+        "invalid_input": "Veuillez renseigner le titre et le message.",
+        "missing_target_classes": "Sélectionnez au moins une classe.",
+        "expiry_before_publish": "L'expiration doit être postérieure à la publication.",
+        "file_too_large": "Pièce jointe trop volumineuse (max 25 Mo).",
+        "empty_file": "Le fichier sélectionné est vide.",
+        "forbidden": "Vous n'êtes pas autorisé à effectuer cette action.",
+        "not_authenticated": "Veuillez vous reconnecter."
+      }
+    },
+    "messages": {
+      "newThread": "Nouvelle conversation",
+      "empty": "Aucun message",
+      "noConversations": "Aucune conversation",
+      "selectThread": "Sélectionnez une conversation",
+      "selectThreadHint": "Choisissez un contact pour commencer.",
+      "typeMessage": "Tapez votre message…",
+      "send": "Envoyer",
+      "searchContacts": "Rechercher un contact…",
+      "searchConversations": "Rechercher…",
+      "you": "Vous",
+      "deleteThread": "Supprimer la conversation",
+      "deleteThreadConfirm": "Cette conversation et tous ses messages seront supprimés définitivement.",
+      "newConversationTitle": "Nouvelle conversation",
+      "noContactsFound": "Aucun contact trouvé",
+      "existing": "Existante",
+      "loading": "Chargement des messages…",
+      "attachFile": "Joindre un fichier",
+      "attachImage": "Joindre une image",
+      "recordAudio": "Enregistrer un message vocal",
+      "stopRecording": "Arrêter l'enregistrement",
+      "filter": {
+        "all": "Tous",
+        "student": "Élèves",
+        "teacher": "Enseignants",
+        "parent": "Parents",
+        "staff": "Personnel"
+      }
+    },
+    "tickets": {
+      "add": "Nouveau ticket",
+      "edit": "Modifier le ticket",
+      "deleteTitle": "Supprimer le ticket",
+      "deleteMessage": "Cette action est irréversible. Supprimer ce ticket ?",
+      "empty": "Aucun ticket",
+      "emptyHint": "Créez un ticket pour demander de l'aide.",
+      "searchPlaceholder": "Rechercher un ticket…",
+      "reply": "Répondre",
+      "closeTicket": "Clôturer",
+      "reopen": "Rouvrir",
+      "addReply": "Écrire une réponse…",
+      "sendReply": "Envoyer",
+      "noReplies": "Aucune réponse pour le moment.",
+      "statusLabel": "Statut",
+      "allStatuses": "Tous les statuts",
+      "priorityLabel": "Priorité",
+      "allPriorities": "Toutes les priorités",
+      "categoryLabel": "Catégorie",
+      "allCategories": "Toutes les catégories",
+      "openedAt": "Ouvert le",
+      "updatedAt": "Mis à jour",
+      "openedBy": "Ouvert par",
+      "assignedTo": "Assigné à",
+      "unassigned": "Non assigné",
+      "detailsTitle": "Détails du ticket",
+      "status": {
+        "open": "Ouvert",
+        "pending": "En attente",
+        "closed": "Clôturé"
+      },
+      "priority": {
+        "low": "Faible",
+        "normal": "Normale",
+        "high": "Haute"
+      },
+      "category": {
+        "technical": "Technique",
+        "billing": "Facturation",
+        "academic": "Pédagogique",
+        "other": "Autre"
+      },
+      "columns": {
+        "subject": "Sujet",
+        "category": "Catégorie",
+        "priority": "Priorité",
+        "status": "Statut",
+        "updated": "Mis à jour",
+        "actions": "Actions"
+      },
+      "fields": {
+        "subject": "Sujet",
+        "body": "Description",
+        "priority": "Priorité",
+        "category": "Catégorie",
+        "status": "Statut"
+      }
+    }
+  },
+  "notifications": {
+    "title": "Notifications",
+    "empty": "Aucune notification",
+    "markAllRead": "Tout marquer lu",
+    "clearAll": "Tout effacer",
+    "unread": "non lues",
+    "viewAll": "Voir tout"
+  },
+  "profile": {
+    "title": "Profil utilisateur",
+    "subtitle": "Gérez vos informations personnelles, votre avatar et vos préférences.",
+    "uploadPhoto": "Changer la photo",
+    "uploadHint": "PNG, JPG — max 2 Mo",
+    "removePhoto": "Supprimer la photo",
+    "fullName": "Nom complet",
+    "email": "Adresse email",
+    "phone": "Téléphone",
+    "role": "Rôle",
+    "language": "Langue préférée",
+    "address": "Adresse",
+    "bio": "Biographie",
+    "currentLocaleHint": "Langue actuelle :",
+    "reset": "Réinitialiser",
+    "saved": "Enregistré",
+    "save": "Enregistrer les modifications",
+    "saving": "Enregistrement…",
+    "editInfo": "Modifiez vos informations personnelles.",
+    "invalidImage": "Veuillez choisir une image valide.",
+    "imageTooLarge": "L'image est trop volumineuse (max 5 Mo).",
+    "pendingSave": "Cliquez sur Enregistrer pour appliquer la photo."
+  },
+  "roles": {
+    "director": "Directeur",
+    "admin": "Admin",
+    "teacher": "Enseignant",
+    "parent": "Parent",
+    "student": "Élève",
+    "staff": "Personnel"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "subtitle": "Personnalisez l'application, l'école et vos préférences.",
+    "saved": "Enregistré",
+    "save": "Enregistrer",
+    "reset": "Réinitialiser",
+    "sections": {
+      "appearance": "Apparence",
+      "school": "École",
+      "security": "Compte & sécurité",
+      "notifications": "Notifications"
+    },
+    "appearance": {
+      "title": "Apparence",
+      "subtitle": "Thème et langue par défaut de l'application.",
+      "theme": "Thème",
+      "themeHint": "Choisissez le mode d'affichage.",
+      "themeLight": "Clair",
+      "themeDark": "Sombre",
+      "language": "Langue",
+      "languageHint": "Modifie la langue de l'interface pour tous les utilisateurs.",
+      "densityTitle": "Compacité",
+      "densityHint": "Option disponible prochainement."
+    },
+    "school": {
+      "title": "Informations de l'école",
+      "subtitle": "Ces informations apparaîtront dans les documents officiels.",
+      "name": "Nom de l'école",
+      "academicYear": "Année scolaire",
+      "address": "Adresse",
+      "phone": "Téléphone",
+      "email": "Email",
+      "logo": "Logo",
+      "uploadLogo": "Importer un logo",
+      "removeLogo": "Supprimer",
+      "logoHint": "PNG, JPG, SVG — max 1 Mo"
+    },
+    "security": {
+      "title": "Compte & sécurité",
+      "subtitle": "Protégez votre compte et vos sessions.",
+      "changePassword": "Changer le mot de passe",
+      "currentPassword": "Mot de passe actuel",
+      "newPassword": "Nouveau mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "updatePassword": "Mettre à jour",
+      "twoFactor": "Authentification à deux facteurs",
+      "twoFactorHint": "Ajoute une deuxième vérification lors de la connexion.",
+      "loginAlerts": "Alertes de connexion",
+      "loginAlertsHint": "Recevez un email à chaque nouvelle connexion.",
+      "sessionTimeout": "Expiration de session (minutes)",
+      "sessionTimeoutHint": "Déconnexion automatique après inactivité.",
+      "passwordMismatch": "Les mots de passe ne correspondent pas."
+    },
+    "notifications": {
+      "title": "Préférences de notification",
+      "subtitle": "Choisissez les catégories que vous souhaitez recevoir.",
+      "message": "Messages",
+      "messageHint": "Nouveaux messages dans la messagerie interne.",
+      "announcement": "Annonces",
+      "announcementHint": "Nouvelles annonces publiées.",
+      "ticket": "Tickets",
+      "ticketHint": "Mises à jour des tickets d'assistance.",
+      "billing": "Facturation",
+      "billingHint": "Paiements reçus et factures en retard.",
+      "system": "Système",
+      "systemHint": "Évènements et alertes système."
+    }
+  },
+  "common": {
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "close": "Fermer",
+    "actions": "Actions",
+    "filters": "Filtres",
+    "clear": "Effacer",
+    "showing": "Affichage de",
+    "results": "résultats",
+    "createdAt": "Créé le",
+    "loading": "Chargement…",
+    "retry": "Réessayer",
+    "saving": "Enregistrement…",
+    "deleting": "Suppression…",
+    "copy": "Copier",
+    "copied": "Copié",
+    "viewDetails": "Voir les détails"
+  },
+  "users": {
+    "title": "Gestion des utilisateurs",
+    "subtitle": "Créez et gérez les comptes du personnel, enseignants, parents et élèves.",
+    "add": "Ajouter un utilisateur",
+    "edit": "Modifier l’utilisateur",
+    "searchPlaceholder": "Rechercher nom, e-mail, téléphone…",
+    "allRoles": "Tous les rôles",
+    "noResults": "Aucun utilisateur",
+    "noResultsHint": "Ajustez votre recherche ou ajoutez un utilisateur.",
+    "deleteTitle": "Supprimer l’utilisateur",
+    "deleteMessage": "Cette action est irréversible. Supprimer définitivement ?",
+    "resetPassword": "Réinitialiser le mot de passe",
+    "resetHint": "Définir un nouveau mot de passe temporaire pour {name}. Il devra le changer à la prochaine connexion.",
+    "resetConfirm": "Réinitialiser",
+    "regenerate": "Régénérer",
+    "mustChangeYes": "À changer",
+    "loadError": "Impossible de charger les utilisateurs.",
+    "saveError": "Impossible d’enregistrer.",
+    "serviceRoleMissing": "Configuration incomplète : ajoutez SUPABASE_SERVICE_ROLE_KEY à .env.local.",
+    "forbidden": "Action réservée aux administrateurs.",
+    "cannotDeleteSelf": "Vous ne pouvez pas supprimer votre propre compte.",
+    "weakPassword": "Le mot de passe doit faire au moins 8 caractères.",
+    "invalidInput": "Vérifiez les champs et réessayez.",
+    "columns": {
+      "user": "Utilisateur",
+      "phone": "Téléphone",
+      "role": "Rôle",
+      "mustChange": "État",
+      "actions": "Actions"
+    },
+    "fields": {
+      "fullName": "Nom complet",
+      "email": "E-mail",
+      "phone": "Téléphone",
+      "role": "Rôle",
+      "tempPassword": "Mot de passe temporaire",
+      "tempPasswordHint": "L’utilisateur devra le changer à la première connexion.",
+      "newPassword": "Nouveau mot de passe"
+    }
+  },
+  "activity": {
+    "title": "Journal d’activité",
+    "subtitle": "Historique des connexions et actions sensibles.",
+    "searchPlaceholder": "Rechercher acteur, id…",
+    "allActors": "Tous les utilisateurs",
+    "allActions": "Toutes les actions",
+    "apply": "Appliquer",
+    "noResults": "Aucune activité",
+    "noResultsHint": "Ajustez les filtres.",
+    "loadError": "Impossible de charger le journal.",
+    "unknownActor": "Système",
+    "columns": {
+      "when": "Quand",
+      "actor": "Acteur",
+      "action": "Action",
+      "entity": "Entité",
+      "metadata": "Détails"
+    },
+    "fields": {
+      "actor": "Acteur",
+      "action": "Action",
+      "from": "Du",
+      "to": "Au"
+    },
+    "actions": {
+      "login": "Connexion",
+      "logout": "Déconnexion",
+      "login_failed": "Échec de connexion",
+      "user_create": "Utilisateur créé",
+      "user_update": "Utilisateur modifié",
+      "user_delete": "Utilisateur supprimé",
+      "password_reset_admin": "Mot de passe réinitialisé",
+      "student_create": "Élève créé",
+      "student_update": "Élève modifié",
+      "student_delete": "Élève supprimé",
+      "exam_create": "Examen créé",
+      "exam_update": "Examen modifié",
+      "exam_delete": "Examen supprimé",
+      "grade_upsert": "Note enregistrée",
+      "grade_delete": "Note supprimée",
+      "invoice_create": "Facture créée",
+      "invoice_update": "Facture modifiée",
+      "invoice_delete": "Facture supprimée",
+      "invoice_mark_paid": "Facture payée",
+      "announcement_create": "Annonce publiée",
+      "message_send": "Message envoyé",
+      "import_run": "Import de données"
+    }
+  },
+  "auth": {
+    "welcome": "Bon retour",
+    "subtitle": "Connectez-vous à votre tableau de bord scolaire",
+    "email": "E-mail",
+    "emailPlaceholder": "vous@ecole.com",
+    "password": "Mot de passe",
+    "passwordPlaceholder": "••••••••",
+    "signIn": "Se connecter",
+    "signingIn": "Connexion…",
+    "invalidCredentials": "E-mail ou mot de passe incorrect",
+    "unexpectedError": "Une erreur inattendue est survenue",
+    "showPassword": "Afficher le mot de passe",
+    "hidePassword": "Masquer le mot de passe",
+    "footer": "© 2026 École — Tous droits réservés"
+  }
+}

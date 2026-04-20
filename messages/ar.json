@@ -1,0 +1,1035 @@
+{
+  "app": {
+    "name": "لوحة إدارة المدرسة",
+    "tagline": "منصة إدارة المدارس على مستوى المؤسسات"
+  },
+  "nav": {
+    "overview": "نظرة عامة",
+    "students": "الطلاب",
+    "teachers": "المعلمون",
+    "classes": "الفصول",
+    "schedule": "الجدول",
+    "attendance": "الحضور",
+    "exams": "الامتحانات",
+    "grades": "النقاط والبطاقات",
+    "finance": "المالية",
+    "communication": "التواصل",
+    "users": "إدارة المستخدمين",
+    "activity": "سجل النشاط",
+    "profile": "الملف الشخصي",
+    "settings": "الإعدادات"
+  },
+  "topbar": {
+    "search": "ابحث عن الطلاب والفصول والمعلمين…",
+    "notifications": "الإشعارات",
+    "profile": "ملفي الشخصي",
+    "logout": "تسجيل الخروج",
+    "language": "اللغة",
+    "themeLight": "فاتح",
+    "themeDark": "داكن",
+    "toggleTheme": "تبديل المظهر"
+  },
+  "languages": {
+    "fr": "الفرنسية",
+    "en": "الإنجليزية",
+    "de": "الألمانية",
+    "ar": "العربية"
+  },
+  "overview": {
+    "title": "نظرة عامة على لوحة التحكم",
+    "loadError": "تعذّر تحميل بيانات لوحة التحكم.",
+    "kpi": {
+      "students": "الطلاب المسجلون",
+      "revenue": "إيرادات هذا الشهر",
+      "attendance": "معدل الحضور",
+      "gradeAvg": "المعدل العام"
+    },
+    "charts": {
+      "payments": {
+        "title": "المدفوعات الشهرية",
+        "subtitle": "آخر 6 أشهر",
+        "paid": "مدفوعة",
+        "pending": "قيد الانتظار",
+        "overdue": "متأخرة"
+      },
+      "subjects": {
+        "title": "معدلات المواد",
+        "subtitle": "موزونة بالمعامل — /20",
+        "label": "المعدل /20"
+      },
+      "mentions": {
+        "title": "أداء الطلاب",
+        "subtitle": "توزيع التقديرات"
+      }
+    },
+    "activity": {
+      "title": "النشاط الأخير",
+      "subtitle": "آخر المدفوعات والامتحانات والتسجيلات",
+      "invoicePaid": "فاتورة مدفوعة",
+      "examCreated": "امتحان مُجدول",
+      "studentEnrolled": "طالب جديد"
+    },
+    "mini": {
+      "activeStudents": "الطلاب النشطون",
+      "totalRevenue": "مجموع المدفوع",
+      "pendingInvoices": "فواتير قيد الانتظار",
+      "overdueInvoices": "فواتير متأخرة"
+    },
+    "empty": {
+      "payments": "لا توجد فواتير بعد",
+      "subjects": "لا توجد نتائج بعد",
+      "grades": "لا توجد نقاط بعد",
+      "activity": "لا شيء لعرضه"
+    }
+  },
+  "roleOverview": {
+    "teacher": {
+      "greeting": "مرحبًا، {name}",
+      "subtitle": "فصولك وطلابك والامتحانات القادمة.",
+      "kpi": {
+        "myStudents": "طلابي",
+        "myClasses": "فصولي",
+        "upcomingExams": "امتحانات قادمة",
+        "avgGrade": "المعدل"
+      },
+      "upcomingExams": "امتحانات قادمة",
+      "recentExams": "امتحانات حديثة",
+      "noUpcomingExams": "لا توجد امتحانات قادمة",
+      "noRecentExams": "لا توجد امتحانات حديثة"
+    },
+    "student": {
+      "greeting": "مرحبًا، {name}",
+      "subtitle": "درجاتك وحضورك والامتحانات القادمة.",
+      "kpi": {
+        "attendance": "الحضور",
+        "gradeAvg": "المعدل /20",
+        "nextExam": "الامتحان التالي",
+        "pending": "رسوم مستحقة"
+      },
+      "upcomingExams": "امتحانات قادمة",
+      "recentResults": "نتائج حديثة",
+      "invoices": "الفواتير",
+      "noUpcomingExams": "لا توجد امتحانات قادمة",
+      "noResults": "لا توجد نتائج",
+      "noInvoices": "لا توجد فواتير",
+      "due": "الاستحقاق"
+    },
+    "parent": {
+      "greeting": "مرحبًا، {name}",
+      "subtitle": "نظرة عامة على تقدم أبنائك.",
+      "kpi": {
+        "children": "الأبناء",
+        "avgAttendance": "متوسط الحضور",
+        "avgGrade": "المعدل",
+        "pending": "رسوم مستحقة"
+      },
+      "noChildren": "لا يوجد أبناء مرتبطون",
+      "noChildrenHint": "تواصل مع الإدارة لربط أبنائك.",
+      "stat": {
+        "attendance": "الحضور",
+        "grade": "النقطة",
+        "pending": "المستحق"
+      },
+      "examsTaken": "امتحانات تم اجتيازها",
+      "invoicesPending": "قيد الانتظار"
+    }
+  },
+  "students": {
+    "title": "إدارة الطلاب",
+    "subtitle": "أضف وعدّل واحذف الطلاب المسجلين.",
+    "add": "إضافة طالب",
+    "edit": "تعديل الطالب",
+    "searchPlaceholder": "ابحث بالاسم أو البريد أو الفصل…",
+    "allClasses": "جميع الفصول",
+    "allStatuses": "جميع الحالات",
+    "allFees": "جميع الرسوم",
+    "noResults": "لا يوجد طلاب",
+    "noResultsHint": "حاول تعديل البحث أو أضف طالبًا جديدًا.",
+    "deleteTitle": "حذف الطالب",
+    "deleteMessage": "لا يمكن التراجع عن هذا الإجراء. هل تريد حذف الطالب نهائيًا؟",
+    "capacityFull": "الفصل ممتلئ",
+    "loadError": "تعذّر تحميل الطلاب.",
+    "saveError": "تعذّر حفظ التعديلات.",
+    "deleteError": "تعذّر حذف الطالب.",
+    "serviceRoleMissing": "الإعداد غير مكتمل: أضف SUPABASE_SERVICE_ROLE_KEY إلى .env.local لإنشاء الطلاب أو حذفهم.",
+    "forbidden": "هذا الإجراء مخصّص للمسؤولين فقط.",
+    "columns": {
+      "student": "الطالب",
+      "class": "الفصل",
+      "parent": "ولي الأمر",
+      "attendance": "الحضور",
+      "fees": "الرسوم",
+      "status": "الحالة",
+      "actions": "الإجراءات"
+    },
+    "fields": {
+      "fullName": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "parentName": "اسم ولي الأمر",
+      "parentEmail": "البريد الإلكتروني لولي الأمر",
+      "parentEmailHint": "سيتم ربط الطالب تلقائياً بحساب ولي الأمر (اختياري)",
+      "class": "الفصل",
+      "dateOfBirth": "تاريخ الميلاد",
+      "admissionNo": "رقم القبول",
+      "attendanceRate": "معدل الحضور (%)",
+      "feesStatus": "حالة الرسوم",
+      "status": "حالة الطالب",
+      "unassigned": "غير معيّن"
+    },
+    "feesValues": {
+      "paid": "مدفوع",
+      "due": "مستحق",
+      "partial": "جزئي"
+    },
+    "statusValues": {
+      "active": "نشط",
+      "new": "جديد",
+      "scholarship": "منحة",
+      "inactive": "غير نشط"
+    },
+    "import": {
+      "button": "استيراد CSV",
+      "title": "استيراد الطلاب من ملف CSV",
+      "hint": "ارفع ملف CSV. نزّل القالب لرؤية التنسيق المطلوب.",
+      "downloadTemplate": "تنزيل القالب",
+      "dropHint": "اختر ملف CSV للبدء.",
+      "chooseFile": "اختيار ملف",
+      "headersHint": "الأعمدة المتوقعة: {headers}",
+      "validCount": "{count} صفوف صحيحة",
+      "invalidCount": "{count} غير صحيحة",
+      "importButton": "استيراد {count} طالب",
+      "missingHeader": "العمود المطلوب مفقود: {header}",
+      "col": {
+        "name": "الاسم",
+        "email": "البريد الإلكتروني",
+        "class": "الفصل",
+        "status": "الحالة",
+        "error": "الخطأ"
+      },
+      "result": {
+        "summary": "{created} تم إنشاؤهم · {failed} فشل"
+      },
+      "errors": {
+        "missingName": "full_name مفقود",
+        "missingEmail": "البريد الإلكتروني مفقود",
+        "invalidEmail": "بريد غير صالح",
+        "duplicateEmail": "بريد مكرر في الملف",
+        "unknownClass": "class_id غير معروف",
+        "invalidAttendance": "الحضور يجب أن يكون 0–100",
+        "invalidFees": "fees_status غير صالح",
+        "invalidStatus": "status غير صالح",
+        "invalidDate": "التاريخ بصيغة YYYY-MM-DD"
+      }
+    },
+    "detail": {
+      "back": "العودة إلى الطلاب",
+      "information": "المعلومات",
+      "address": "العنوان",
+      "enrolledOn": "تاريخ التسجيل",
+      "bio": "نبذة",
+      "gradeAverage": "المعدل العام",
+      "noResults": "لا توجد نتائج امتحانات",
+      "basedOnResults": "بناءً على {count} نتيجة",
+      "parents": "الوالدان والأولياء",
+      "noParents": "لا يوجد والد مرتبط",
+      "noParentsHint": "اربط حساب والد بهذا الطالب.",
+      "primaryContact": "جهة الاتصال الرئيسية",
+      "recentResults": "نتائج الامتحانات الأخيرة",
+      "subject": "المادة",
+      "type": "النوع",
+      "date": "التاريخ",
+      "score": "الدرجة",
+      "invoices": "الفواتير",
+      "noInvoices": "لا توجد فواتير",
+      "issuedAt": "تاريخ الإصدار",
+      "dueDate": "الاستحقاق",
+      "amount": "المبلغ"
+    }
+  },
+  "teachers": {
+    "title": "إدارة المعلمين",
+    "subtitle": "أضف وعدّل واحذف المعلمين.",
+    "add": "إضافة معلم",
+    "edit": "تعديل المعلم",
+    "searchPlaceholder": "ابحث بالاسم أو التخصص…",
+    "allStatuses": "جميع الحالات",
+    "noResults": "لا يوجد معلمون",
+    "deleteTitle": "حذف المعلم",
+    "deleteMessage": "لا يمكن التراجع عن هذا الإجراء. هل تريد حذف المعلم نهائيًا؟",
+    "columns": {
+      "teacher": "المعلم",
+      "email": "البريد الإلكتروني",
+      "classes": "الفصول",
+      "employeeNo": "رقم الموظف",
+      "specialization": "التخصص",
+      "joinDate": "تاريخ الالتحاق",
+      "status": "الحالة",
+      "actions": "الإجراءات"
+    },
+    "fields": {
+      "fullName": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "employeeNo": "رقم الموظف",
+      "specialization": "التخصص",
+      "joinDate": "تاريخ الالتحاق",
+      "status": "الحالة"
+    },
+    "statusValues": {
+      "active": "نشط",
+      "leave": "في إجازة",
+      "inactive": "غير نشط"
+    },
+    "detail": {
+      "back": "العودة إلى المعلمين",
+      "notFound": "المعلم غير موجود",
+      "notFoundHint": "قد يكون هذا المعلم قد حُذف.",
+      "information": "المعلومات",
+      "overview": "نظرة عامة",
+      "homeroomCount": "الفصول المسؤول عنها",
+      "sessionsCount": "الحصص الأسبوعية",
+      "subjectsCount": "المواد",
+      "homeroomClasses": "الفصول المسؤول عنها",
+      "noHomeroom": "لا توجد فصول",
+      "noHomeroomHint": "هذا المعلم ليس مسؤولاً عن أي فصل.",
+      "weeklySchedule": "الجدول الأسبوعي",
+      "rooms": "القاعات المستخدمة"
+    }
+  },
+  "classes": {
+    "title": "إدارة الفصول",
+    "subtitle": "نظّم الفصول وسعتها.",
+    "add": "إضافة فصل",
+    "edit": "تعديل الفصل",
+    "searchPlaceholder": "ابحث بالاسم أو المستوى…",
+    "capacity": "السعة",
+    "occupancy": "نسبة الإشغال",
+    "full": "ممتلئ",
+    "available": "مقعد متاح",
+    "students": "طالب",
+    "homeroomTeacher": "المعلم المسؤول",
+    "unassigned": "غير معيّن",
+    "noResults": "لا توجد فصول",
+    "deleteTitle": "حذف الفصل",
+    "deleteMessage": "لا يمكن التراجع عن هذا الإجراء. هل تريد حذف الفصل نهائيًا؟",
+    "deleteBlockedTitle": "لا يمكن الحذف",
+    "deleteBlockedMessage": "هذا الفصل يحتوي على {count} طالبًا. أعد تعيينهم قبل الحذف.",
+    "fields": {
+      "name": "اسم الفصل",
+      "level": "المستوى",
+      "room": "القاعة",
+      "capacity": "السعة",
+      "homeroomTeacher": "المعلم المسؤول",
+      "academicYear": "العام الدراسي"
+    },
+    "detail": {
+      "back": "العودة إلى الفصول",
+      "notFound": "الفصل غير موجود",
+      "notFoundHint": "قد يكون هذا الفصل قد حُذف.",
+      "information": "المعلومات",
+      "subjects": "المواد المدرسة",
+      "students": "الطلاب",
+      "noStudents": "لا يوجد طلاب في هذا الفصل",
+      "noStudentsHint": "سجّل الطلاب من صفحة الطلاب.",
+      "weeklySchedule": "الجدول الأسبوعي",
+      "assignedTeachers": "المعلمون المعيّنون",
+      "noTeachers": "لا يوجد معلمون متاحون",
+      "noTeachersHint": "أضف معلمين من صفحة المعلمين.",
+      "save": "حفظ",
+      "saving": "جار الحفظ…",
+      "saved": "تم الحفظ"
+    }
+  },
+  "parents": {
+    "title": "الأولياء",
+    "loadError": "تعذّر تحميل ولي الأمر.",
+    "fields": {
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "occupation": "المهنة",
+      "address": "العنوان"
+    },
+    "detail": {
+      "back": "رجوع",
+      "information": "المعلومات",
+      "memberSince": "عضو منذ",
+      "bio": "نبذة",
+      "children": "الأبناء",
+      "noChildren": "لا يوجد أبناء مرتبطون",
+      "noChildrenHint": "اربط ولي الأمر هذا بطالب.",
+      "primaryContact": "جهة الاتصال الرئيسية"
+    }
+  },
+  "rooms": {
+    "title": "القاعات",
+    "detail": {
+      "back": "رجوع",
+      "subtitle": "{classes} فصول · {sessions} حصص",
+      "notFound": "القاعة غير مستخدمة",
+      "notFoundHint": "لا يوجد فصل أو حصة تشير إلى هذه القاعة.",
+      "classes": "الفصول المخصصة",
+      "noClasses": "لا توجد فصول مخصصة",
+      "subjects": "المواد المدرسة",
+      "weeklySchedule": "الجدول الأسبوعي"
+    }
+  },
+  "schedule": {
+    "title": "الجدول الدراسي",
+    "subtitle": "خطّط الحصص الأسبوعية حسب الفصل أو المعلم.",
+    "add": "إضافة حصة",
+    "edit": "تعديل الحصة",
+    "allClasses": "جميع الفصول",
+    "allTeachers": "جميع المعلمين",
+    "empty": "لا توجد حصص مجدولة",
+    "deleteTitle": "حذف الحصة",
+    "deleteMessage": "لا يمكن التراجع عن هذا الإجراء. حذف هذه الحصة؟",
+    "unassigned": "غير معيّن",
+    "days": {
+      "mon": "الاثنين",
+      "tue": "الثلاثاء",
+      "wed": "الأربعاء",
+      "thu": "الخميس",
+      "fri": "الجمعة"
+    },
+    "daysShort": {
+      "mon": "اث",
+      "tue": "ثل",
+      "wed": "أر",
+      "thu": "خم",
+      "fri": "جم"
+    },
+    "fields": {
+      "day": "اليوم",
+      "startTime": "من",
+      "endTime": "إلى",
+      "subject": "المادة",
+      "teacher": "المعلم",
+      "class": "الفصل",
+      "room": "القاعة"
+    }
+  },
+  "exams": {
+    "title": "الامتحانات والنتائج",
+    "subtitle": "أدِر الامتحانات وتتبّع نتائج الطلاب.",
+    "add": "إضافة امتحان",
+    "edit": "تعديل الامتحان",
+    "searchPlaceholder": "ابحث بالمادة…",
+    "allClasses": "جميع الفصول",
+    "allTypes": "جميع الأنواع",
+    "noResults": "لا يوجد امتحانات",
+    "deleteTitle": "حذف الامتحان",
+    "deleteMessage": "لا يمكن التراجع عن هذا الإجراء. حذف الامتحان ونتائجه؟",
+    "viewResults": "عرض النتائج",
+    "resultsTitle": "النتائج",
+    "averageScore": "المعدّل",
+    "noStudentsHint": "لا يوجد طلاب في هذا الفصل.",
+    "submitted": "مسجّلة",
+    "columns": {
+      "subject": "المادة",
+      "class": "الفصل",
+      "date": "التاريخ",
+      "type": "النوع",
+      "totalPoints": "المجموع",
+      "average": "المعدّل",
+      "actions": "الإجراءات",
+      "student": "الطالب",
+      "score": "العلامة"
+    },
+    "fields": {
+      "subject": "المادة",
+      "class": "الفصل",
+      "date": "التاريخ",
+      "type": "النوع",
+      "totalPoints": "إجمالي النقاط",
+      "coefficient": "المعامل"
+    },
+    "typeValues": {
+      "quiz": "اختبار قصير",
+      "midterm": "منتصف الفصل",
+      "final": "نهائي"
+    },
+    "loadError": "تعذّر تحميل الامتحانات.",
+    "saveError": "تعذّر حفظ الامتحان.",
+    "scoreError": "تعذّر حفظ العلامة.",
+    "forbidden": "هذا الإجراء مخصّص للمسؤولين فقط."
+  },
+  "attendance": {
+    "title": "الحضور",
+    "subtitle": "تسجيل الحضور اليومي حسب القسم.",
+    "historyTitle": "سجلّ الحضور",
+    "historySubtitle": "سجلّات الحضور اليومية.",
+    "class": "القسم",
+    "date": "التاريخ",
+    "child": "الابن/الابنة",
+    "save": "حفظ الحضور",
+    "markAllPresent": "وضع الكل كحاضر",
+    "savedAt": "تم الحفظ في {time}",
+    "notePlaceholder": "ملاحظة اختيارية…",
+    "selectAtLeastOne": "حدّد حالة لطالب واحد على الأقل.",
+    "attendanceRate": "نسبة الحضور",
+    "noClassesTitle": "لا توجد أقسام متاحة",
+    "noClassesHint": "لم يتم إسناد أي قسم لك بعد.",
+    "noStudentsTitle": "لا يوجد طلاب في هذا القسم",
+    "noStudentsHint": "أضف طلابًا إلى القسم لتسجيل الحضور.",
+    "noSubjectsTitle": "لا يوجد ما يمكن عرضه",
+    "noSubjectsHint": "لا تتوفر سجلات حضور بعد.",
+    "noRecordsTitle": "لا يوجد حضور بعد",
+    "noRecordsHint": "ستظهر السجلات هنا بمجرد تسجيل الحضور.",
+    "status": {
+      "present": "حاضر",
+      "absent": "غائب",
+      "late": "متأخر",
+      "excused": "بعذر"
+    }
+  },
+  "grades": {
+    "title": "النقاط والبطاقات",
+    "subtitle": "معدّلات موزونة حسب المادة وبطاقات نقاط لكل طالب.",
+    "searchPlaceholder": "ابحث عن طالب…",
+    "chooseClass": "اختر فصلاً لعرض المعدّلات.",
+    "noStudents": "لا يوجد طلاب في هذا الفصل.",
+    "noScoresYet": "لم تُسجّل أي علامات بعد.",
+    "noExams": "لا توجد امتحانات لهذا الفصل.",
+    "noClass": "بدون فصل",
+    "viewReport": "عرض البطاقة",
+    "reportTitle": "بطاقة النقاط",
+    "overall": "المعدّل العام",
+    "subjectsTitle": "المعدّلات حسب المادة",
+    "examsTitle": "تفاصيل الامتحانات",
+    "loadError": "تعذّر تحميل النقاط.",
+    "kpi": {
+      "classAverage": "معدّل الفصل",
+      "students": "الطلاب",
+      "exams": "الامتحانات"
+    },
+    "fields": {
+      "class": "الفصل"
+    },
+    "columns": {
+      "rank": "الترتيب",
+      "student": "الطالب",
+      "taken": "امتحانات مُجراة",
+      "average": "المعدّل",
+      "mention": "التقدير",
+      "actions": "الإجراءات",
+      "subject": "المادة",
+      "coefficient": "المعامل",
+      "examCount": "الامتحانات",
+      "type": "النوع",
+      "date": "التاريخ",
+      "score": "العلامة",
+      "normalized": "من 20"
+    },
+    "mentions": {
+      "excellent": "ممتاز",
+      "good": "جيّد جدًا",
+      "fair": "جيّد",
+      "pass": "مقبول",
+      "fail": "ضعيف"
+    }
+  },
+  "finance": {
+    "title": "المالية والفواتير",
+    "subtitle": "تتبّع الفواتير والمدفوعات.",
+    "add": "فاتورة جديدة",
+    "edit": "تعديل الفاتورة",
+    "searchPlaceholder": "ابحث بالطالب أو الملاحظة…",
+    "allStatuses": "جميع الحالات",
+    "noResults": "لا يوجد فواتير",
+    "deleteTitle": "حذف الفاتورة",
+    "deleteMessage": "لا يمكن التراجع عن هذا الإجراء. حذف الفاتورة؟",
+    "markPaid": "تعليم كمدفوع",
+    "currency": "€",
+    "loadError": "تعذّر تحميل الفواتير.",
+    "saveError": "تعذّر حفظ الفاتورة.",
+    "deleteError": "تعذّر حذف الفاتورة.",
+    "forbidden": "هذا الإجراء مخصّص للمسؤولين فقط.",
+    "kpi": {
+      "totalRevenue": "إجمالي الإيرادات",
+      "paid": "مُحصَّل",
+      "pending": "قيد الانتظار",
+      "overdue": "متأخر"
+    },
+    "columns": {
+      "student": "الطالب",
+      "amount": "المبلغ",
+      "issuedAt": "تاريخ الإصدار",
+      "dueDate": "الاستحقاق",
+      "status": "الحالة",
+      "paidAt": "تاريخ الدفع",
+      "note": "الملاحظة",
+      "actions": "الإجراءات"
+    },
+    "fields": {
+      "student": "الطالب",
+      "amount": "المبلغ",
+      "issuedAt": "تاريخ الإصدار",
+      "dueDate": "تاريخ الاستحقاق",
+      "paidAt": "تاريخ الدفع",
+      "status": "الحالة",
+      "note": "الملاحظة"
+    },
+    "statusValues": {
+      "paid": "مدفوعة",
+      "pending": "قيد الانتظار",
+      "overdue": "متأخرة"
+    },
+    "tabs": {
+      "invoices": "الفواتير",
+      "monthly": "التتبع الشهري",
+      "expenses": "المصاريف"
+    },
+    "monthly": {
+      "title": "التتبع الشهري",
+      "subtitle": "الإيرادات مقابل المصاريف شهريًا.",
+      "year": "السنة",
+      "totals": "الإجماليات",
+      "chartTitle": "الفواتير حسب الشهر",
+      "kpi": {
+        "collected": "المحصل",
+        "expenses": "المصاريف",
+        "net": "الصافي",
+        "collectionRate": "نسبة التحصيل"
+      },
+      "columns": {
+        "month": "الشهر",
+        "paid": "مدفوع",
+        "pending": "قيد الانتظار",
+        "overdue": "متأخر",
+        "expenses": "المصاريف",
+        "net": "الصافي",
+        "collectionRate": "التحصيل"
+      }
+    },
+    "expenses": {
+      "title": "المصاريف",
+      "subtitle": "تتبع نفقات المدرسة وتكاليف التشغيل.",
+      "add": "إضافة مصروف",
+      "edit": "تعديل المصروف",
+      "deleteTitle": "حذف المصروف",
+      "deleteMessage": "لا يمكن التراجع عن هذا الإجراء. حذف هذا المصروف؟",
+      "noResults": "لا توجد مصاريف",
+      "searchPlaceholder": "ابحث في الوصف أو الفئة…",
+      "allCategories": "كل الفئات",
+      "filters": {
+        "from": "من",
+        "to": "إلى"
+      },
+      "kpi": {
+        "monthTotal": "هذا الشهر",
+        "allTotal": "الإجمالي",
+        "topCategory": "أعلى فئة"
+      },
+      "columns": {
+        "date": "التاريخ",
+        "category": "الفئة",
+        "description": "الوصف",
+        "amount": "المبلغ",
+        "actions": "إجراءات"
+      },
+      "fields": {
+        "category": "الفئة",
+        "amount": "المبلغ",
+        "expenseDate": "التاريخ",
+        "description": "الوصف"
+      },
+      "categories": {
+        "salaries": "الرواتب",
+        "rent": "الإيجار",
+        "utilities": "المرافق",
+        "supplies": "اللوازم",
+        "maintenance": "الصيانة",
+        "transport": "النقل",
+        "other": "أخرى"
+      },
+      "errors": {
+        "invalidAmount": "يجب أن يكون المبلغ رقمًا موجبًا.",
+        "missingDate": "يرجى اختيار تاريخ.",
+        "saveError": "فشل حفظ المصروف.",
+        "forbidden": "هذا الإجراء مخصص للمسؤولين."
+      }
+    }
+  },
+  "communication": {
+    "title": "التواصل",
+    "subtitle": "الإعلانات، المراسلات الداخلية وتذاكر الدعم.",
+    "tabs": {
+      "announcements": "الإعلانات",
+      "messages": "الرسائل",
+      "tickets": "التذاكر"
+    },
+    "announcements": {
+      "add": "إعلان جديد",
+      "edit": "تعديل الإعلان",
+      "deleteTitle": "حذف الإعلان",
+      "deleteMessage": "لا يمكن التراجع عن هذا الإجراء. حذف هذا الإعلان؟",
+      "empty": "لا توجد إعلانات",
+      "emptyHint": "أنشئ أول إعلان لإبلاغ فريقك.",
+      "searchPlaceholder": "ابحث في الإعلانات…",
+      "pinned": "مثبّت",
+      "pin": "تثبيت",
+      "unpin": "إلغاء التثبيت",
+      "audienceLabel": "الفئة المستهدفة",
+      "allAudiences": "كل الفئات",
+      "unreadOnly": "غير المقروءة فقط",
+      "new": "جديد",
+      "expired": "منتهي",
+      "expiresOn": "ينتهي في {date}",
+      "postedBy": "بواسطة",
+      "backToList": "العودة إلى الإعلانات",
+      "attachment": "مرفق",
+      "attachmentError": "تعذر تحميل المرفق.",
+      "loadingAttachment": "جارٍ تحميل المرفق…",
+      "download": "تحميل",
+      "chooseFile": "اختيار ملف",
+      "removeAttachment": "إزالة المرفق",
+      "noClasses": "لا توجد فصول متاحة بعد.",
+      "audience": {
+        "all": "الجميع",
+        "teachers": "المعلمون",
+        "students": "الطلاب",
+        "parents": "أولياء الأمور",
+        "staff": "الموظفون",
+        "classes": "فصول محددة"
+      },
+      "fields": {
+        "title": "العنوان",
+        "body": "الرسالة",
+        "audience": "الفئة المستهدفة",
+        "pinned": "تثبيت في الأعلى",
+        "publishedAt": "تاريخ النشر",
+        "expiresAt": "تاريخ الانتهاء (اختياري)",
+        "targetClasses": "الفصول المستهدفة",
+        "attachment": "المرفق"
+      },
+      "errors": {
+        "invalid_input": "يرجى تعبئة العنوان والرسالة.",
+        "missing_target_classes": "اختر فصلًا واحدًا على الأقل.",
+        "expiry_before_publish": "يجب أن يكون الانتهاء بعد النشر.",
+        "file_too_large": "حجم المرفق كبير جدًا (الحد الأقصى 25 م.ب).",
+        "empty_file": "الملف المختار فارغ.",
+        "forbidden": "لا تملك الصلاحية لتنفيذ هذا الإجراء.",
+        "not_authenticated": "يرجى تسجيل الدخول مجددًا."
+      }
+    },
+    "messages": {
+      "newThread": "محادثة جديدة",
+      "empty": "لا توجد رسائل بعد",
+      "noConversations": "لا توجد محادثات",
+      "selectThread": "اختر محادثة",
+      "selectThreadHint": "اختر جهة اتصال لبدء المراسلة.",
+      "typeMessage": "اكتب رسالة…",
+      "send": "إرسال",
+      "searchContacts": "ابحث عن جهة اتصال…",
+      "searchConversations": "بحث…",
+      "you": "أنت",
+      "deleteThread": "حذف المحادثة",
+      "deleteThreadConfirm": "سيتم حذف هذه المحادثة وجميع رسائلها نهائيًا.",
+      "newConversationTitle": "محادثة جديدة",
+      "existing": "موجودة",
+      "noContactsFound": "لا توجد نتائج",
+      "loading": "جارٍ تحميل الرسائل…",
+      "attachFile": "إرفاق ملف",
+      "attachImage": "إرفاق صورة",
+      "recordAudio": "تسجيل رسالة صوتية",
+      "stopRecording": "إيقاف التسجيل",
+      "filter": {
+        "all": "الكل",
+        "student": "الطلاب",
+        "teacher": "المعلمون",
+        "parent": "أولياء الأمور",
+        "staff": "الإدارة"
+      }
+    },
+    "tickets": {
+      "add": "تذكرة جديدة",
+      "edit": "تعديل التذكرة",
+      "deleteTitle": "حذف التذكرة",
+      "deleteMessage": "لا يمكن التراجع عن هذا الإجراء. حذف هذه التذكرة؟",
+      "empty": "لا توجد تذاكر",
+      "emptyHint": "أنشئ تذكرة لطلب المساعدة.",
+      "searchPlaceholder": "ابحث عن تذكرة…",
+      "reply": "رد",
+      "closeTicket": "إغلاق",
+      "reopen": "إعادة فتح",
+      "addReply": "اكتب ردًا…",
+      "sendReply": "إرسال",
+      "noReplies": "لا توجد ردود حتى الآن.",
+      "statusLabel": "الحالة",
+      "allStatuses": "كل الحالات",
+      "priorityLabel": "الأولوية",
+      "allPriorities": "كل الأولويات",
+      "categoryLabel": "الفئة",
+      "allCategories": "كل الفئات",
+      "openedAt": "فُتحت في",
+      "updatedAt": "آخر تحديث",
+      "openedBy": "فتحها",
+      "assignedTo": "مُسندة إلى",
+      "unassigned": "غير مُسندة",
+      "detailsTitle": "تفاصيل التذكرة",
+      "status": {
+        "open": "مفتوحة",
+        "pending": "قيد الانتظار",
+        "closed": "مغلقة"
+      },
+      "priority": {
+        "low": "منخفضة",
+        "normal": "عادية",
+        "high": "عالية"
+      },
+      "category": {
+        "technical": "تقنية",
+        "billing": "مالية",
+        "academic": "أكاديمية",
+        "other": "أخرى"
+      },
+      "columns": {
+        "subject": "الموضوع",
+        "category": "الفئة",
+        "priority": "الأولوية",
+        "status": "الحالة",
+        "updated": "آخر تحديث",
+        "actions": "الإجراءات"
+      },
+      "fields": {
+        "subject": "الموضوع",
+        "body": "الوصف",
+        "priority": "الأولوية",
+        "category": "الفئة",
+        "status": "الحالة"
+      }
+    }
+  },
+  "notifications": {
+    "title": "الإشعارات",
+    "empty": "لا توجد إشعارات",
+    "markAllRead": "تعليم الكل كمقروء",
+    "clearAll": "مسح الكل",
+    "unread": "غير مقروء",
+    "viewAll": "عرض الكل"
+  },
+  "profile": {
+    "title": "ملف المستخدم",
+    "subtitle": "إدارة معلوماتك الشخصية والصورة والتفضيلات.",
+    "uploadPhoto": "رفع صورة",
+    "uploadHint": "PNG أو JPG — بحد أقصى 2 ميغابايت",
+    "removePhoto": "إزالة الصورة",
+    "fullName": "الاسم الكامل",
+    "email": "البريد الإلكتروني",
+    "phone": "رقم الهاتف",
+    "role": "الدور",
+    "language": "اللغة المفضلة",
+    "address": "العنوان",
+    "bio": "نبذة",
+    "currentLocaleHint": "اللغة الحالية:",
+    "reset": "إعادة تعيين",
+    "saved": "تم الحفظ",
+    "save": "حفظ التغييرات",
+    "editInfo": "قم بتحديث معلوماتك الشخصية.",
+    "saving": "جارٍ الحفظ…",
+    "invalidImage": "يرجى اختيار صورة صالحة.",
+    "imageTooLarge": "الصورة كبيرة جدًا (الحد الأقصى 5 ميجابايت).",
+    "pendingSave": "انقر حفظ لتطبيق الصورة."
+  },
+  "roles": {
+    "director": "مدير",
+    "admin": "مسؤول",
+    "teacher": "معلم",
+    "parent": "ولي الأمر",
+    "student": "طالب",
+    "staff": "موظف"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "subtitle": "تخصيص التطبيق ومعلومات المدرسة وتفضيلاتك.",
+    "saved": "تم الحفظ",
+    "save": "حفظ",
+    "reset": "إعادة التعيين",
+    "sections": {
+      "appearance": "المظهر",
+      "school": "المدرسة",
+      "security": "الحساب والأمان",
+      "notifications": "الإشعارات"
+    },
+    "appearance": {
+      "title": "المظهر",
+      "subtitle": "السمة الافتراضية للتطبيق واللغة.",
+      "theme": "السمة",
+      "themeHint": "اختر وضع العرض.",
+      "themeLight": "فاتح",
+      "themeDark": "داكن",
+      "language": "اللغة",
+      "languageHint": "تغيير لغة الواجهة.",
+      "densityTitle": "الكثافة",
+      "densityHint": "الخيار متاح قريباً."
+    },
+    "school": {
+      "title": "معلومات المدرسة",
+      "subtitle": "تظهر هذه المعلومات في الوثائق الرسمية.",
+      "name": "اسم المدرسة",
+      "academicYear": "السنة الدراسية",
+      "address": "العنوان",
+      "phone": "الهاتف",
+      "email": "البريد الإلكتروني",
+      "logo": "الشعار",
+      "uploadLogo": "تحميل شعار",
+      "removeLogo": "إزالة",
+      "logoHint": "PNG, JPG, SVG — بحد أقصى 1 ميغابايت"
+    },
+    "security": {
+      "title": "الحساب والأمان",
+      "subtitle": "احمِ حسابك وجلساتك.",
+      "changePassword": "تغيير كلمة المرور",
+      "currentPassword": "كلمة المرور الحالية",
+      "newPassword": "كلمة المرور الجديدة",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "updatePassword": "تحديث",
+      "twoFactor": "المصادقة الثنائية",
+      "twoFactorHint": "إضافة تحقق ثانٍ عند تسجيل الدخول.",
+      "loginAlerts": "تنبيهات تسجيل الدخول",
+      "loginAlertsHint": "تلقي بريد عند كل تسجيل دخول جديد.",
+      "sessionTimeout": "انتهاء الجلسة (بالدقائق)",
+      "sessionTimeoutHint": "تسجيل خروج تلقائي بعد الخمول.",
+      "passwordMismatch": "كلمات المرور غير متطابقة."
+    },
+    "notifications": {
+      "title": "تفضيلات الإشعارات",
+      "subtitle": "اختر الفئات التي ترغب في تلقيها.",
+      "message": "الرسائل",
+      "messageHint": "رسائل جديدة في الدردشة الداخلية.",
+      "announcement": "الإعلانات",
+      "announcementHint": "إعلانات جديدة منشورة.",
+      "ticket": "التذاكر",
+      "ticketHint": "تحديثات تذاكر الدعم.",
+      "billing": "الفواتير",
+      "billingHint": "المدفوعات المستلمة والفواتير المتأخرة.",
+      "system": "النظام",
+      "systemHint": "أحداث وتنبيهات النظام."
+    }
+  },
+  "common": {
+    "edit": "تعديل",
+    "delete": "حذف",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "close": "إغلاق",
+    "actions": "الإجراءات",
+    "filters": "مرشحات",
+    "clear": "مسح",
+    "showing": "عرض",
+    "results": "نتائج",
+    "createdAt": "أنشئ في",
+    "loading": "جارٍ التحميل…",
+    "retry": "إعادة المحاولة",
+    "saving": "جارٍ الحفظ…",
+    "deleting": "جارٍ الحذف…",
+    "copy": "نسخ",
+    "copied": "تم النسخ",
+    "viewDetails": "عرض التفاصيل"
+  },
+  "users": {
+    "title": "إدارة المستخدمين",
+    "subtitle": "إنشاء وإدارة حسابات الموظفين والمعلمين وأولياء الأمور والطلاب.",
+    "add": "إضافة مستخدم",
+    "edit": "تعديل المستخدم",
+    "searchPlaceholder": "ابحث بالاسم أو البريد أو الهاتف…",
+    "allRoles": "جميع الأدوار",
+    "noResults": "لا يوجد مستخدمون",
+    "noResultsHint": "عدّل البحث أو أضف مستخدمًا جديدًا.",
+    "deleteTitle": "حذف المستخدم",
+    "deleteMessage": "لا يمكن التراجع عن هذا الإجراء. حذف نهائي؟",
+    "resetPassword": "إعادة تعيين كلمة المرور",
+    "resetHint": "تعيين كلمة مرور مؤقتة جديدة لـ {name}. سيُطلب تغييرها عند تسجيل الدخول التالي.",
+    "resetConfirm": "إعادة تعيين",
+    "regenerate": "توليد جديد",
+    "mustChangeYes": "يجب التغيير",
+    "loadError": "تعذّر تحميل المستخدمين.",
+    "saveError": "تعذّر الحفظ.",
+    "serviceRoleMissing": "الإعداد غير مكتمل: أضف SUPABASE_SERVICE_ROLE_KEY إلى .env.local.",
+    "forbidden": "هذا الإجراء مخصص للمسؤولين.",
+    "cannotDeleteSelf": "لا يمكنك حذف حسابك.",
+    "weakPassword": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل.",
+    "invalidInput": "يرجى التحقق من الحقول وإعادة المحاولة.",
+    "columns": {
+      "user": "المستخدم",
+      "phone": "الهاتف",
+      "role": "الدور",
+      "mustChange": "الحالة",
+      "actions": "إجراءات"
+    },
+    "fields": {
+      "fullName": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "role": "الدور",
+      "tempPassword": "كلمة مرور مؤقتة",
+      "tempPasswordHint": "سيُطلب من المستخدم تغييرها عند أول تسجيل دخول.",
+      "newPassword": "كلمة مرور جديدة"
+    }
+  },
+  "activity": {
+    "title": "سجل النشاط",
+    "subtitle": "مسار تدقيق لعمليات تسجيل الدخول والإجراءات الحساسة.",
+    "searchPlaceholder": "ابحث عن منفّذ أو كيان…",
+    "allActors": "جميع المستخدمين",
+    "allActions": "جميع الإجراءات",
+    "apply": "تطبيق",
+    "noResults": "لا يوجد نشاط",
+    "noResultsHint": "عدّل عوامل التصفية.",
+    "loadError": "تعذّر تحميل السجل.",
+    "unknownActor": "النظام",
+    "columns": {
+      "when": "الوقت",
+      "actor": "المنفّذ",
+      "action": "الإجراء",
+      "entity": "الكيان",
+      "metadata": "التفاصيل"
+    },
+    "fields": {
+      "actor": "المنفّذ",
+      "action": "الإجراء",
+      "from": "من",
+      "to": "إلى"
+    },
+    "actions": {
+      "login": "تسجيل دخول",
+      "logout": "تسجيل خروج",
+      "login_failed": "فشل تسجيل الدخول",
+      "user_create": "إنشاء مستخدم",
+      "user_update": "تعديل مستخدم",
+      "user_delete": "حذف مستخدم",
+      "password_reset_admin": "إعادة تعيين كلمة المرور",
+      "student_create": "إنشاء طالب",
+      "student_update": "تعديل طالب",
+      "student_delete": "حذف طالب",
+      "exam_create": "إنشاء اختبار",
+      "exam_update": "تعديل اختبار",
+      "exam_delete": "حذف اختبار",
+      "grade_upsert": "حفظ درجة",
+      "grade_delete": "حذف درجة",
+      "invoice_create": "إنشاء فاتورة",
+      "invoice_update": "تعديل فاتورة",
+      "invoice_delete": "حذف فاتورة",
+      "invoice_mark_paid": "تحديد الفاتورة كمدفوعة",
+      "announcement_create": "نشر إعلان",
+      "message_send": "إرسال رسالة",
+      "import_run": "استيراد بيانات"
+    }
+  },
+  "auth": {
+    "welcome": "مرحبا بعودتك",
+    "subtitle": "سجل الدخول إلى لوحة تحكم المدرسة",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "anta@madrasa.com",
+    "password": "كلمة المرور",
+    "passwordPlaceholder": "••••••••",
+    "signIn": "تسجيل الدخول",
+    "signingIn": "جاري تسجيل الدخول…",
+    "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+    "unexpectedError": "حدث خطأ غير متوقع",
+    "showPassword": "إظهار كلمة المرور",
+    "hidePassword": "إخفاء كلمة المرور",
+    "footer": "© 2026 École — جميع الحقوق محفوظة"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(powershell.exe -NoProfile -Command \"Get-Command node,npm -ErrorAction SilentlyContinue | Select-Object Name,Source\")",
+      "Bash(npm -v)",
+      "Bash(npm run *)",
+      "Bash(npx tsc *)",
+      "Bash(npx next *)",
+      "mcp__claude_ai_Supabase__list_organizations",
+      "mcp__claude_ai_Supabase__list_projects",
+      "mcp__claude_ai_Supabase__get_cost",
+      "mcp__claude_ai_Supabase__confirm_cost",
+      "mcp__claude_ai_Supabase__create_project",
+      "mcp__claude_ai_Supabase__get_project_url",
+      "mcp__claude_ai_Supabase__get_publishable_keys",
+      "mcp__claude_ai_Supabase__apply_migration",
+      "mcp__claude_ai_Supabase__execute_sql",
+      "mcp__claude_ai_Supabase__generate_typescript_types",
+      "mcp__claude_ai_Supabase__list_migrations",
+      "mcp__claude_ai_Supabase__list_tables",
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"['en','fr','de','ar'].forEach\\(l=>{try{JSON.parse\\(require\\('fs'\\).readFileSync\\('messages/'+l+'.json','utf8'\\)\\);console.log\\(l,'OK'\\)}catch\\(e\\){console.log\\(l,'FAIL',e.message\\)}}\\)\")",
+      "Bash(echo \"exit=$?\")",
+      "Bash(grep -o '\"text\":\"[^\"]\\\\{1,200\\\\}\"')",
+      "Bash(grep -n '\"role\":\"user\",\"content\":\\\\[{\"type\":\"text\"' '/c/Users/nabil/.claude/projects/c--Users-nabil-Desktop-liste-des-P-ecole-2/76b07f8b-bebc-4a37-aad8-2f5c68c66b39.jsonl')"
+    ]
+  }
+}
