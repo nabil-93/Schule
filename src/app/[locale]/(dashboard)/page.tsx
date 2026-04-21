@@ -10,7 +10,7 @@ import { listChildrenForParent } from '@/lib/queries/parents';
 import { listClassesForTeacher } from '@/lib/queries/classTeachers';
 import { listAllSchedules } from '@/lib/queries/schedule';
 import { listUsers } from '@/lib/queries/users';
-import type { Exam, ExamResult, Invoice, Student, ScheduleSession } from '@/types';
+import type { Exam, ExamResult, Invoice, Student, ScheduleSession, SchoolClass } from '@/types';
 import { OverviewClient } from './OverviewClient';
 import { TeacherOverview } from './TeacherOverview';
 import { StudentOverview } from './StudentOverview';
