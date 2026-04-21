@@ -31,25 +31,29 @@ export default async function DashboardLayout({
 
   const supabase = await createClient();
   let classes: SchoolClass[] = [];
-  let school = await getSchoolInfo(supabase);
+  let school: any = null;
 
   try {
-    const allClasses = await listClasses(supabase);
-    // ... roles logic ... (unchanged)
-    const { role, is_director } = user.profile;
-    // (truncating for brevity, matching existing logic)
+    const [allClasses, schoolInfo] = await Promise.all([
+      listClasses(supabase).catch(() => []),
+      getSchoolInfo(supabase).catch(() => null),
+    ]);
+    
+    school = schoolInfo;
+    const allClassesResolved = allClasses || [];
 
-    // Actually, I should match the logic exactly to avoid breakage
+    const { role, is_director } = user.profile;
+
     if (is_director || role === 'mitarbeiter') {
-      classes = allClasses;
+      classes = allClassesResolved;
     } else if (role === 'teacher') {
       const { data: teacherClasses } = await supabase.from('class_teachers').select('class_id').eq('teacher_id', user.id);
       const assignedIds = new Set((teacherClasses ?? []).map((tc) => tc.class_id));
-      classes = allClasses.filter((c) => assignedIds.has(c.id) || c.homeroomTeacherId === user.id);
+      classes = allClassesResolved.filter((c) => assignedIds.has(c.id) || c.homeroomTeacherId === user.id);
     } else if (role === 'student') {
       const { data: student } = await supabase.from('students').select('class_id').eq('profile_id', user.id).maybeSingle();
       if (student?.class_id) {
-        classes = allClasses.filter((c) => c.id === student.class_id);
+        classes = allClassesResolved.filter((c) => c.id === student.class_id);
       }
     } else if (role === 'parent') {
       const { data: links } = await supabase.from('student_parent_links').select('student_id').eq('parent_id', user.id);
@@ -57,11 +61,11 @@ export default async function DashboardLayout({
         const childIds = links.map((l) => l.student_id);
         const { data: childStudents } = await supabase.from('students').select('class_id').in('profile_id', childIds);
         const childClassIds = new Set((childStudents ?? []).map((s) => s.class_id).filter(Boolean) as string[]);
-        classes = allClasses.filter((c) => childClassIds.has(c.id));
+        classes = allClassesResolved.filter((c) => childClassIds.has(c.id));
       }
     }
-  } catch {
-    classes = [];
+  } catch (err) {
+    console.error('DashboardLayout data error:', err);
   }
 
   return (

@@ -23,13 +23,16 @@ export async function getCurrentUser(): Promise<CurrentUser | null> {
 
   if (!user) return null;
 
-  const { data: profile } = await supabase
+  const { data: profile, error: profileError } = await supabase
     .from('profiles')
     .select('*')
     .eq('id', user.id)
-    .single();
+    .maybeSingle();
 
-  if (!profile) return null;
+  if (profileError || !profile) {
+    console.error('Profile retrieval failed for user:', user.id, profileError);
+    return null;
+  }
 
   return {
     id: user.id,
