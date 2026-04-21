@@ -13,8 +13,8 @@ import { listAllSchedules } from '@/lib/queries/schedule';
 import type { ScheduleSession } from '@/types';
 import { ScheduleClient, type TeacherOption } from './ScheduleClient';
 
-export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
+export default async function Page({ params }: { params: { locale: string } }) {
+  const { locale } = params;
   setRequestLocale(locale);
 
   const user = await getCurrentUser();

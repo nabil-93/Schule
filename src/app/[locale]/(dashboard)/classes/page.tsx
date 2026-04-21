@@ -11,8 +11,8 @@ import { getAllowedClassIds } from '@/lib/auth/getAllowedClassIds';
 import type { SchoolClass, Student } from '@/types';
 import { ClassesClient, type TeacherOption } from './ClassesClient';
 
-export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
+export default async function Page({ params }: { params: { locale: string } }) {
+  const { locale } = params;
   setRequestLocale(locale);
 
   const user = await getCurrentUser();

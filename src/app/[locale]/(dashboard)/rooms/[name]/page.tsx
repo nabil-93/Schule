@@ -7,9 +7,9 @@ import { RoomDetailClient } from './RoomDetailClient';
 export default async function RoomDetailPage({
   params,
 }: {
-  params: Promise<{ locale: string; name: string }>;
+  params: { locale: string; name: string };
 }) {
-  const { locale, name } = await params;
+  const { locale, name } = params;
   setRequestLocale(locale);
 
   const supabase = await createClient();

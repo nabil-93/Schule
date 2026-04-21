@@ -4,8 +4,8 @@ import { listUsers, type UiUser } from '@/lib/queries/users';
 import { listClassTeachers, type ClassTeacherRow } from '@/lib/queries/classTeachers';
 import { TeachersClient } from './TeachersClient';
 
-export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
+export default async function Page({ params }: { params: { locale: string } }) {
+  const { locale } = params;
   setRequestLocale(locale);
 
   const supabase = await createClient();

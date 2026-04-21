@@ -5,11 +5,11 @@ export default async function LoginPage({
   params,
   searchParams,
 }: {
-  params: Promise<{ locale: string }>;
-  searchParams: Promise<{ redirect?: string }>;
+  params: { locale: string };
+  searchParams: { redirect?: string };
 }) {
-  const { locale } = await params;
-  const { redirect } = await searchParams;
+  const { locale } = params;
+  const { redirect } = searchParams;
   setRequestLocale(locale);
 
   return (

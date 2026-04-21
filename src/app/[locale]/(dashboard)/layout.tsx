@@ -18,9 +18,9 @@ export default async function DashboardLayout({
   params,
 }: {
   children: ReactNode;
-  params: Promise<{ locale: string }>;
+  params: { locale: string };
 }) {
-  const { locale } = await params;
+  const { locale } = params;
   const user = await getCurrentUser();
 
   // Defensive SSR guard — middleware is the primary gate, but if a session

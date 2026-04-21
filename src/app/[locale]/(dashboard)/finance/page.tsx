@@ -7,8 +7,8 @@ import { listExpenses, type Expense } from '@/lib/queries/expenses';
 import type { Invoice, SchoolClass, Student } from '@/types';
 import { FinanceShell } from './FinanceShell';
 
-export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
+export default async function Page({ params }: { params: { locale: string } }) {
+  const { locale } = params;
   setRequestLocale(locale);
 
   const supabase = await createClient();

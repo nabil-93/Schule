@@ -6,8 +6,8 @@ import { createClient } from '@/lib/supabase/server';
 import { getSchoolInfo } from '@/lib/queries/school';
 import type { SchoolInfo } from '@/types';
 
-export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
+export default async function Page({ params }: { params: { locale: string } }) {
+  const { locale } = params;
   setRequestLocale(locale);
 
   const user = await getCurrentUser();

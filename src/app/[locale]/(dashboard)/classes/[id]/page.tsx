@@ -14,9 +14,9 @@ import { ClassDetailClient, type TeacherOption } from './ClassDetailClient';
 export default async function ClassDetailPage({
   params,
 }: {
-  params: Promise<{ locale: string; id: string }>;
+  params: { locale: string; id: string };
 }) {
-  const { locale, id } = await params;
+  const { locale, id } = params;
   setRequestLocale(locale);
 
   const me = await getCurrentUser();

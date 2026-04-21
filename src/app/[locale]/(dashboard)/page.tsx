@@ -19,9 +19,9 @@ import { ParentOverview } from './ParentOverview';
 export default async function OverviewPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: { locale: string };
 }) {
-  const { locale } = await params;
+  const { locale } = params;
   setRequestLocale(locale);
 
   const user = await getCurrentUser();

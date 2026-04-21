@@ -32,7 +32,7 @@ import { createClient } from '@/lib/supabase/server';
 import type { Student, InvoiceStatus } from '@/types';
 
 interface PageProps {
-  params: Promise<{ locale: string; id: string }>;
+  params: { locale: string; id: string };
 }
 
 function feesTone(s: Student['feesStatus']): 'success' | 'warning' | 'danger' {
@@ -68,7 +68,7 @@ function formatDate(iso: string | null, locale: string): string {
 }
 
 export default async function StudentDetailPage({ params }: PageProps) {
-  const { locale, id } = await params;
+  const { locale, id } = params;
   setRequestLocale(locale);
 
   const me = await getCurrentUser();

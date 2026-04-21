@@ -8,8 +8,8 @@ import { getAllowedClassIds } from '@/lib/auth/getAllowedClassIds';
 import type { Student } from '@/types';
 import { StudentsClient } from './StudentsClient';
 
-export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
+export default async function Page({ params }: { params: { locale: string } }) {
+  const { locale } = params;
   setRequestLocale(locale);
 
   const user = await getCurrentUser();

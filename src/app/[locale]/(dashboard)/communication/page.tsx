@@ -7,8 +7,8 @@ import { listAnnouncements } from '@/lib/queries/announcements';
 import { listConversations, listMessagingContacts } from '@/lib/queries/conversations';
 import { CommunicationClient } from './CommunicationClient';
 
-export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
+export default async function Page({ params }: { params: { locale: string } }) {
+  const { locale } = params;
   setRequestLocale(locale);
 
   const me = await getCurrentUser();

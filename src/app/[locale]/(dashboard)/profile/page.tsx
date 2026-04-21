@@ -1,8 +1,8 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { ProfileForm } from './ProfileForm';
 
-export default async function ProfilePage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
+export default async function ProfilePage({ params }: { params: { locale: string } }) {
+  const { locale } = params;
   setRequestLocale(locale);
   const t = await getTranslations('profile');
 

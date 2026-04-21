@@ -5,8 +5,8 @@ import { getCurrentUser } from '@/lib/auth/getCurrentUser';
 import { listUsers, type UiUser } from '@/lib/queries/users';
 import { UsersClient } from './UsersClient';
 
-export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
+export default async function Page({ params }: { params: { locale: string } }) {
+  const { locale } = params;
   setRequestLocale(locale);
 
   const me = await getCurrentUser();

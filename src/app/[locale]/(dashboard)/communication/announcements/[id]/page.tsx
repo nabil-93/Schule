@@ -18,7 +18,7 @@ import { AttachmentViewer } from './AttachmentViewer';
 import { ViewTracker } from './ViewTracker';
 
 interface PageProps {
-  params: Promise<{ locale: string; id: string }>;
+  params: { locale: string; id: string };
 }
 
 function audienceTone(
@@ -44,7 +44,7 @@ function formatDateTime(iso: string, locale: string): string {
 }
 
 export default async function AnnouncementDetailPage({ params }: PageProps) {
-  const { locale, id } = await params;
+  const { locale, id } = params;
   setRequestLocale(locale);
 
   const me = await getCurrentUser();

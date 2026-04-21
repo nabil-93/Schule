@@ -9,9 +9,9 @@ import { TeacherDetailClient } from './TeacherDetailClient';
 export default async function TeacherDetailPage({
   params,
 }: {
-  params: Promise<{ locale: string; id: string }>;
+  params: { locale: string; id: string };
 }) {
-  const { locale, id } = await params;
+  const { locale, id } = params;
   setRequestLocale(locale);
 
   const supabase = await createClient();

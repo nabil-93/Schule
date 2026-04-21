@@ -27,7 +27,7 @@ import {
 import { createClient } from '@/lib/supabase/server';
 
 interface PageProps {
-  params: Promise<{ locale: string; id: string }>;
+  params: { locale: string; id: string };
 }
 
 function formatDate(iso: string | null, locale: string): string {
@@ -42,7 +42,7 @@ function formatDate(iso: string | null, locale: string): string {
 }
 
 export default async function ParentDetailPage({ params }: PageProps) {
-  const { locale, id } = await params;
+  const { locale, id } = params;
   setRequestLocale(locale);
 
   const me = await getCurrentUser();

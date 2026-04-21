@@ -6,8 +6,8 @@ import { listActivityLogs, type ActivityLog } from '@/lib/queries/activityLogs';
 import { listUsers, type UiUser } from '@/lib/queries/users';
 import { ActivityClient } from './ActivityClient';
 
-export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
+export default async function Page({ params }: { params: { locale: string } }) {
+  const { locale } = params;
   setRequestLocale(locale);
 
   const me = await getCurrentUser();

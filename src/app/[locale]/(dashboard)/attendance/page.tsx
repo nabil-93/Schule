@@ -18,9 +18,9 @@ import { AttendanceHistoryClient } from './AttendanceHistoryClient';
 export default async function AttendancePage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: { locale: string };
 }) {
-  const { locale } = await params;
+  const { locale } = params;
   setRequestLocale(locale);
 
   const user = await getCurrentUser();
