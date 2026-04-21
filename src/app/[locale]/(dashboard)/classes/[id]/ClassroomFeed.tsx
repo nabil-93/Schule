@@ -275,7 +275,7 @@ export function ClassroomFeed({ classId, currentUserId, items, canPost, canManag
                     className="border-red-200 text-red-600 hover:bg-red-50"
                   >
                     <StopCircle className="h-4 w-4 md:me-2 animate-pulse" />
-                    <span className="hidden md:inline">Arrêter l'enregistrement</span>
+                    <span className="hidden md:inline">Arrêter l&apos;enregistrement</span>
                   </Button>
                 ) : (
                   <Button
@@ -303,7 +303,7 @@ export function ClassroomFeed({ classId, currentUserId, items, canPost, canManag
         <EmptyState 
           icon={FileText}
           title="Espace Classe Vide"
-          description="Aucun devoir, document ou message n'a encore été partagé avec cette classe."
+          description="Aucun devoir, document ou message n&apos;a encore été partagé avec cette classe."
         />
       ) : (
         <div className="space-y-4">

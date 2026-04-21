@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { cn, initials } from '@/lib/utils';
 
 export function Avatar({
@@ -12,14 +13,14 @@ export function Avatar({
   className?: string;
 }) {
   if (src) {
-    // eslint-disable-next-line @next/next/no-img-element
     return (
-      <img
+      <Image
         src={src}
         alt={name}
         width={size}
         height={size}
         className={cn('rounded-full object-cover ring-2 ring-white dark:ring-slate-900', className)}
+        unoptimized={src.startsWith('data:')} // Required for base64 / local data URLs
       />
     );
   }
