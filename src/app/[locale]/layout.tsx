@@ -18,6 +18,8 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+export const dynamic = 'force-dynamic';
+
 export default async function LocaleLayout({
   children,
   params,

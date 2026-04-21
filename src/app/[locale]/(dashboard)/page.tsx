@@ -1,4 +1,5 @@
 import { setRequestLocale } from 'next-intl/server';
+export const dynamic = 'force-dynamic';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { getCurrentUser } from '@/lib/auth/getCurrentUser';

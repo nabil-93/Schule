@@ -1,4 +1,5 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+export const dynamic = 'force-dynamic';
 import { ProfileForm } from './ProfileForm';
 
 export default async function ProfilePage({ params }: { params: { locale: string } }) {
