@@ -13,6 +13,8 @@ import { getSchoolInfo } from '@/lib/queries/school';
 import { SchoolSettingsHydrator } from '@/components/providers/SchoolSettingsHydrator';
 import type { SchoolClass } from '@/types';
 
+export const dynamic = 'force-dynamic';
+
 export default async function DashboardLayout({
   children,
   params,
