@@ -20,7 +20,7 @@ export function Avatar({
         width={size}
         height={size}
         className={cn('rounded-full object-cover ring-2 ring-white dark:ring-slate-900', className)}
-        unoptimized={src.startsWith('data:')} // Required for base64 / local data URLs
+        unoptimized={src.startsWith('data:') || src.includes('supabase.co')} // Ensure external storage works without proxy issues
       />
     );
   }
