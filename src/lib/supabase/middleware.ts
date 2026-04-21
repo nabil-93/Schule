@@ -13,9 +13,17 @@ function stripLocale(pathname: string): string {
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });
 
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (!supabaseUrl || !supabaseAnonKey) {
+    console.error('MISSING SUPABASE ENV VARS IN MIDDLEWARE');
+    return response;
+  }
+
   const supabase = createServerClient<Database>(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    supabaseUrl,
+    supabaseAnonKey,
     {
       cookies: {
         getAll() {
@@ -34,6 +42,7 @@ export async function updateSession(request: NextRequest) {
     },
   );
 
+  // Use getSession as a lighter check if getUser is failing in Edge
   const {
     data: { user },
   } = await supabase.auth.getUser();
