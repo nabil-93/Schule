@@ -388,22 +388,16 @@ export async function cancelMonthlyPayment(
   if (!gate.ok) return { ok: false, error: gate.error };
 
   const supabase = await createClient();
-
-  // Update status to 'cancelled' instead of deleting to preserve history and show in dashboard activity
-  const { error } = await supabase
-    .from('invoices')
-    .update({ status: 'cancelled', updated_at: new Date().toISOString() })
-    .eq('id', invoiceId);
+  const { error } = await supabase.from('invoices').delete().eq('id', invoiceId);
     
   if (error) return { ok: false, error: error.message };
 
   await logActivity({
     actorId: gate.user.id,
     actorRole: gate.user.profile.role,
-    actionType: 'invoice_update', // Changed from delete to update
+    actionType: 'invoice_delete',
     entityType: 'invoice',
     entityId: invoiceId,
-    metadata: { is_monthly_cancel: true, status: 'cancelled' },
   });
 
   revalidatePath('/[locale]/(dashboard)/finance', 'page');
