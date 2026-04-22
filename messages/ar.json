@@ -102,6 +102,19 @@
       "activity": "لا شيء لعرضه"
     }
   },
+  "teacherSchedule": {
+    "title": "جداول المعلمين",
+    "subtitle": "أين المعلمون الآن؟",
+    "day": "اليوم",
+    "week": "الأسبوع",
+    "month": "الشهر",
+    "active": "نشط",
+    "available": "متاح",
+    "teacher": "المعلم",
+    "subject": "المادة",
+    "room": "القاعة",
+    "noSchedules": "لا توجد جداول لهذه الفترة."
+  },
   "roleOverview": {
     "teacher": {
       "greeting": "مرحبًا، {name}",
