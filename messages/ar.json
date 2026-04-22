@@ -4,6 +4,18 @@
     "tagline": "منصة إدارة المدارس للمؤسسات",
     "dashboardTitle": "المدرسة — لوحة التحكم"
   },
+  "roleOverview": {
+    "teacher": {
+      "todaySchedule": "جدول حصصي اليوم",
+      "noSessionsToday": "لا توجد حصص مجدولة اليوم",
+      "viewSchedule": "عرض الجدول الزمني الكامل ←"
+    },
+    "student": {
+      "todaySchedule": "جدول حصصي اليوم",
+      "noSessionsToday": "لا توجد حصص مجدولة اليوم",
+      "viewSchedule": "عرض الجدول الزمني الكامل ←"
+    }
+  },
   "nav": {
     "overview": "نظرة عامة",
     "students": "الطلاب",

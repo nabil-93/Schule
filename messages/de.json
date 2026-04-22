@@ -4,6 +4,18 @@
     "tagline": "Schulverwaltungsplattform für Unternehmen",
     "dashboardTitle": "Schule — Dashboard"
   },
+  "roleOverview": {
+    "teacher": {
+      "todaySchedule": "Mein Stundenplan heute",
+      "noSessionsToday": "Heute keine anstehenden Unterrichtsstunden",
+      "viewSchedule": "Gesamten Stundenplan anzeigen →"
+    },
+    "student": {
+      "todaySchedule": "Mein Stundenplan heute",
+      "noSessionsToday": "Heute keine anstehenden Unterrichtsstunden",
+      "viewSchedule": "Gesamten Stundenplan anzeigen →"
+    }
+  },
   "nav": {
     "overview": "Übersicht",
     "students": "Schüler",

@@ -119,7 +119,7 @@ export function TodayScheduleWidget({ sessions, filterBy, teacherNames = {}, tra
             href="/schedule"
             className="text-xs font-medium text-brand-600 hover:underline dark:text-brand-400"
           >
-            Voir tout l&apos;emploi du temps →
+            {tRole('viewSchedule')}
           </Link>
         </div>
       </CardContent>

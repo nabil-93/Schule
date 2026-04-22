@@ -4,6 +4,18 @@
     "tagline": "Plateforme de gestion scolaire d'entreprise",
     "dashboardTitle": "École — Tableau de bord"
   },
+  "roleOverview": {
+    "teacher": {
+      "todaySchedule": "Mon emploi du temps aujourd'hui",
+      "noSessionsToday": "Aucun cours prévu aujourd'hui",
+      "viewSchedule": "Voir tout l'emploi du temps →"
+    },
+    "student": {
+      "todaySchedule": "Mon emploi du temps aujourd'hui",
+      "noSessionsToday": "Aucun cours prévu aujourd'hui",
+      "viewSchedule": "Voir tout l'emploi du temps →"
+    }
+  },
   "nav": {
     "overview": "Aperçu",
     "students": "Élèves",

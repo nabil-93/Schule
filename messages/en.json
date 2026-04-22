@@ -4,6 +4,18 @@
     "tagline": "Enterprise School Management Platform",
     "dashboardTitle": "School — Dashboard"
   },
+  "roleOverview": {
+    "teacher": {
+      "todaySchedule": "My schedule today",
+      "noSessionsToday": "No classes scheduled today",
+      "viewSchedule": "View full schedule →"
+    },
+    "student": {
+      "todaySchedule": "My schedule today",
+      "noSessionsToday": "No classes scheduled today",
+      "viewSchedule": "View full schedule →"
+    }
+  },
   "nav": {
     "overview": "Overview",
     "students": "Students",
