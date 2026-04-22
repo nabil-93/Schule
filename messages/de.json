@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "Schul-Dashboard",
+    "name": "Schule",
     "tagline": "Schulverwaltungsplattform für Unternehmen"
   },
   "nav": {
@@ -67,6 +67,7 @@
       "subtitle": "Letzte Zahlungen, Prüfungen und Einschreibungen",
       "invoicePaid": "Rechnung bezahlt",
       "examCreated": "Prüfung geplant",
+      "invoiceCancelled": "Rechnung storniert",
       "studentEnrolled": "Neuer Schüler"
     },
     "mini": {
@@ -1028,6 +1029,6 @@
     "unexpectedError": "Ein unerwarteter Fehler ist aufgetreten",
     "showPassword": "Passwort anzeigen",
     "hidePassword": "Passwort verbergen",
-    "footer": "© 2026 École — Alle Rechte vorbehalten"
+    "footer": "© 2026 Schule — Alle Rechte vorbehalten"
   }
 }

@@ -96,7 +96,10 @@ export interface ExamResult {
   score: number;
 }
 
-export type InvoiceStatus = 'paid' | 'pending' | 'overdue';
+export type InvoiceStatus = 'paid' | 'pending' | 'overdue' | 'cancelled';
+
+export type ChartType = 'bar' | 'line' | 'area';
+export type TimeRange = '7d' | '30d' | '6m' | '1y';
 
 export interface Invoice {
   id: string;
@@ -107,6 +110,7 @@ export interface Invoice {
   paidAt: string | null;
   status: InvoiceStatus;
   note?: string;
+  updatedAt?: string;
 }
 
 export type NotificationType = 'info' | 'success' | 'warning' | 'danger';

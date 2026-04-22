@@ -11,10 +11,11 @@ type Row = {
   paid_at: string | null;
   status: string;
   note: string | null;
+  updated_at: string;
 };
 
 export const INVOICE_SELECT =
-  'id, student_id, amount, issued_at, due_date, paid_at, status, note';
+  'id, student_id, amount, issued_at, due_date, paid_at, status, note, updated_at';
 
 export function rowToInvoice(row: Row): Invoice {
   return {
@@ -26,6 +27,7 @@ export function rowToInvoice(row: Row): Invoice {
     paidAt: row.paid_at,
     status: row.status as InvoiceStatus,
     note: row.note ?? undefined,
+    updatedAt: row.updated_at,
   };
 }
 

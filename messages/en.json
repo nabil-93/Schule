@@ -1,7 +1,7 @@
 {
   "app": {
-    "name": "School Dashboard",
-    "tagline": "Enterprise-grade school management platform"
+    "name": "Schule",
+    "tagline": "Enterprise School Management Platform"
   },
   "nav": {
     "overview": "Overview",
@@ -67,6 +67,7 @@
       "subtitle": "Latest payments, exams, and new students",
       "invoicePaid": "Invoice paid",
       "examCreated": "Exam scheduled",
+      "invoiceCancelled": "Invoice cancelled",
       "studentEnrolled": "New student"
     },
     "mini": {
@@ -1019,9 +1020,9 @@
   },
   "auth": {
     "welcome": "Welcome back",
-    "subtitle": "Sign in to your school dashboard",
+    "subtitle": "Sign in to your Schule dashboard",
     "email": "Email",
-    "emailPlaceholder": "you@school.com",
+    "emailPlaceholder": "contact@schule.com",
     "password": "Password",
     "passwordPlaceholder": "••••••••",
     "signIn": "Sign in",

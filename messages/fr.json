@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "Tableau de Bord Scolaire",
+    "name": "Schule",
     "tagline": "Plateforme de gestion scolaire d'entreprise"
   },
   "nav": {
@@ -67,6 +67,7 @@
       "subtitle": "Derniers paiements, examens et inscriptions",
       "invoicePaid": "Facture payée",
       "examCreated": "Examen programmé",
+      "invoiceCancelled": "Facture annulée",
       "studentEnrolled": "Nouvel élève"
     },
     "mini": {
@@ -1031,7 +1032,7 @@
     "welcome": "Bon retour",
     "subtitle": "Connectez-vous à votre tableau de bord scolaire",
     "email": "E-mail",
-    "emailPlaceholder": "vous@ecole.com",
+    "emailPlaceholder": "contact@schule.com",
     "password": "Mot de passe",
     "passwordPlaceholder": "••••••••",
     "signIn": "Se connecter",

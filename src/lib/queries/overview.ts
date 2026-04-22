@@ -1,4 +1,4 @@
-import type { Exam, ExamResult, Invoice, Student } from '@/types';
+import type { Exam, ExamResult, Invoice, Student, TimeRange } from '@/types';
 import { buildStudentReport, mention, normalizeTo20 } from './grades';
 
 export interface OverviewKpis {
@@ -34,7 +34,7 @@ export interface GradeDistributionPoint {
   count: number;
 }
 
-export type ActivityKind = 'invoice_paid' | 'exam_created' | 'student_enrolled';
+export type ActivityKind = 'invoice_paid' | 'invoice_cancelled' | 'exam_created' | 'student_enrolled';
 
 export interface ActivityItem {
   id: string;
@@ -43,6 +43,7 @@ export interface ActivityItem {
   primary: string;
   secondary: string;
   amount?: number;
+  status?: string;
 }
 
 function monthKey(iso: string): string {
@@ -108,27 +109,47 @@ export function buildOverviewKpis(
 }
 
 /**
- * Group invoices by the month of their issue/paid date. Always emits the last
- * `monthsBack` months so the chart has consistent X axis points.
+ * Group invoices by the month of their issue/paid date.
  */
 export function buildMonthlyPayments(
   invoices: Invoice[],
-  monthsBack = 6,
+  range: TimeRange | number = '6m',
 ): MonthlyPaymentPoint[] {
   const now = new Date();
   const buckets: Record<string, MonthlyPaymentPoint> = {};
   const order: string[] = [];
-  for (let i = monthsBack - 1; i >= 0; i--) {
-    const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() - i, 1));
-    const key = `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}`;
-    buckets[key] = { month: monthLabel(key), paid: 0, pending: 0, overdue: 0 };
+  
+  let steps = 6;
+  let unit: 'day' | 'month' = 'month';
+
+  if (typeof range === 'number') {
+    steps = range;
+    unit = 'month';
+  } else {
+    if (range === '7d') { steps = 7; unit = 'day'; }
+    else if (range === '30d') { steps = 30; unit = 'day'; }
+    else if (range === '6m') { steps = 6; unit = 'month'; }
+    else if (range === '1y') { steps = 12; unit = 'month'; }
+  }
+
+  for (let i = steps - 1; i >= 0; i--) {
+    let d: Date;
+    let key: string;
+    if (unit === 'month') {
+      d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() - i, 1));
+      key = `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}`;
+    } else {
+      d = new Date(now.getTime() - i * 24 * 60 * 60 * 1000);
+      key = d.toISOString().split('T')[0];
+    }
+    buckets[key] = { month: key, paid: 0, pending: 0, overdue: 0 };
     order.push(key);
   }
 
   for (const inv of invoices) {
     const ref = inv.status === 'paid' ? inv.paidAt ?? inv.issuedAt : inv.issuedAt;
     if (!ref) continue;
-    const key = monthKey(ref);
+    const key = unit === 'month' ? monthKey(ref) : ref.split('T')[0];
     const bucket = buckets[key];
     if (!bucket) continue;
     if (inv.status === 'paid') bucket.paid += inv.amount;
@@ -197,20 +218,31 @@ export function buildRecentActivity(
   students: Student[],
   invoices: Invoice[],
   exams: Exam[],
-  limit = 8,
+  limit = 12,
 ): ActivityItem[] {
   const items: ActivityItem[] = [];
 
   for (const inv of invoices) {
-    if (inv.status !== 'paid') continue;
-    items.push({
-      id: `inv:${inv.id}`,
-      kind: 'invoice_paid',
-      at: inv.paidAt ?? inv.issuedAt,
-      primary: inv.studentId,
-      secondary: inv.id,
-      amount: inv.amount,
-    });
+    if (inv.status === 'paid') {
+      items.push({
+        id: `inv:${inv.id}`,
+        kind: 'invoice_paid',
+        at: inv.paidAt ?? inv.issuedAt,
+        primary: inv.studentId,
+        secondary: inv.id,
+        amount: inv.amount,
+      });
+    } else if (inv.status === 'cancelled') {
+      items.push({
+        id: `inv-can:${inv.id}`,
+        kind: 'invoice_cancelled',
+        at: inv.updatedAt || inv.issuedAt, // Assuming updatedAt exists in DB or using issuedAt
+        primary: inv.studentId,
+        secondary: inv.id,
+        amount: inv.amount,
+        status: 'Storniert'
+      });
+    }
   }
 
   for (const exam of exams) {
@@ -223,16 +255,21 @@ export function buildRecentActivity(
     });
   }
 
-  for (const s of students.slice(0, limit)) {
-    items.push({
-      id: `stu:${s.id}`,
-      kind: 'student_enrolled',
-      at: '',
-      primary: s.fullName,
-      secondary: s.admissionNo,
-    });
+  for (const s of students) {
+    if (s.status === 'new' || s.status === 'active') {
+      items.push({
+        id: `stu:${s.id}`,
+        kind: 'student_enrolled',
+        at: s.dateOfBirth || '', // Use some date if available
+        primary: s.fullName,
+        secondary: s.admissionNo,
+      });
+    }
   }
 
-  items.sort((a, b) => b.at.localeCompare(a.at));
-  return items.slice(0, limit);
+  // Filter out items with empty 'at' and sort
+  return items
+    .filter(i => !!i.at)
+    .sort((a, b) => b.at.localeCompare(a.at))
+    .slice(0, limit);
 }

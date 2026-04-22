@@ -12,7 +12,7 @@ const flags: Record<Locale, string> = {
   fr: '🇫🇷',
   en: '🇬🇧',
   de: '🇩🇪',
-  ar: '🇸🇦',
+  ar: '🇲🇦',
 };
 
 export function LanguageSelector() {
