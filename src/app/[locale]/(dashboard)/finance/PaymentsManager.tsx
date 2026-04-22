@@ -369,11 +369,11 @@ export function PaymentsManager({
             <table className="w-full text-sm">
               <thead className="border-b bg-[hsl(var(--muted))]/40 text-xs uppercase tracking-wide text-[hsl(var(--muted-foreground))]">
                 <tr>
-                  <th className="px-4 py-3 text-start font-medium">{t('paymentsManager.table.columns.student')}</th>
-                  <th className="hidden px-4 py-3 text-start font-medium md:table-cell">{t('paymentsManager.table.columns.class')}</th>
-                  <th className="px-4 py-3 text-center font-medium">{t('paymentsManager.table.columns.status')}</th>
-                  <th className="px-4 py-3 text-end font-medium">{t('paymentsManager.table.columns.amount')}</th>
-                  <th className="px-4 py-3 text-end font-medium">{t('paymentsManager.table.columns.actions')}</th>
+                  <th className="px-4 py-3 text-start font-medium w-full sm:w-auto min-w-[200px]">{t('paymentsManager.table.columns.student')}</th>
+                  <th className="hidden px-4 py-3 text-start font-medium md:table-cell whitespace-nowrap">{t('paymentsManager.table.columns.class')}</th>
+                  <th className="px-4 py-3 text-center font-medium whitespace-nowrap">{t('paymentsManager.table.columns.status')}</th>
+                  <th className="px-4 py-3 text-end font-medium whitespace-nowrap">{t('paymentsManager.table.columns.amount')}</th>
+                  <th className="px-4 py-3 text-end font-medium whitespace-nowrap">{t('paymentsManager.table.columns.actions')}</th>
                 </tr>
               </thead>
               <tbody className="divide-y">

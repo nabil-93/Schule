@@ -619,6 +619,47 @@
         "collectionRate": "Recouvrement"
       }
     },
+    "paymentsManager": {
+      "kpis": {
+        "totalStudents": "Total élèves",
+        "paid": "Payé",
+        "unpaid": "Non payé",
+        "collectionRate": "Taux de recouvrement"
+      },
+      "filters": {
+        "search": "Rechercher un élève…",
+        "class": "Toutes les classes",
+        "month": "Sélectionner un mois",
+        "status": {
+          "all": "Tous",
+          "paid": "✅ Payé",
+          "unpaid": "❌ Non payé"
+        }
+      },
+      "table": {
+        "columns": {
+          "student": "Élève",
+          "class": "Classe",
+          "status": "Statut",
+          "amount": "Montant",
+          "actions": "Actions"
+        },
+        "status": {
+          "paid": "Payé",
+          "unpaid": "Non payé"
+        },
+        "actions": {
+          "invoice": "Facture",
+          "cancel": "Annuler",
+          "markPaid": "Marquer payé"
+        },
+        "empty": "Aucun élève trouvé"
+      },
+      "confirm": {
+        "cancelTitle": "Annuler le paiement",
+        "cancelMessage": "Êtes-vous sûr de vouloir annuler le paiement pour {name} pour {month} ? La facture sera supprimée."
+      }
+    },
     "expenses": {
       "title": "Dépenses",
       "subtitle": "Suivi des charges et coûts d'exploitation.",
