@@ -8,6 +8,7 @@ import { routing, type Locale } from '@/i18n/routing';
 import '../globals.css';
 
 import { getTranslations } from 'next-intl/server';
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -50,6 +51,7 @@ export default async function LocaleLayout({
             {children}
           </NextIntlClientProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
