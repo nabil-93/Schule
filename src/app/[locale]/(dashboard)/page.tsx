@@ -11,7 +11,7 @@ import { listChildrenForParent } from '@/lib/queries/parents';
 import { listClassesForTeacher } from '@/lib/queries/classTeachers';
 import { listAllSchedules } from '@/lib/queries/schedule';
 import { listUsers } from '@/lib/queries/users';
-import type { Exam, ExamResult, Invoice, Student, ScheduleSession, SchoolClass } from '@/types';
+import type { Exam, ExamResult, Invoice, Student, ScheduleSession, SchoolClass, User } from '@/types';
 import { OverviewClient } from './OverviewClient';
 import { TeacherOverview } from './TeacherOverview';
 import { StudentOverview } from './StudentOverview';
@@ -53,7 +53,7 @@ export default async function OverviewPage({
       exams = e;
       results = r;
       sessions = sch;
-      teachers = u.filter((usr) => usr.role === 'teacher');
+      teachers = u.filter((usr) => usr.role === 'teacher') as any[];
     } catch (err) {
       loadError = err instanceof Error ? err.message : 'load_failed';
     }

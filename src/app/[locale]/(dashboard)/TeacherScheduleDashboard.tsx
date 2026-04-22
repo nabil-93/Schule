@@ -166,7 +166,7 @@ function TeacherScheduleRow({
       {/* Teacher Info */}
       <div className="flex w-full items-center gap-4 border-b p-6 md:w-72 md:border-b-0 md:border-r md:px-6">
         <div className="relative">
-          <Avatar name={teacher.fullName} src={teacher.avatarUrl} size={52} className="rounded-2xl border-2 border-white shadow-sm ring-1 ring-[hsl(var(--border))]/50" />
+          <Avatar name={teacher.fullName} src={teacher.avatarUrl ?? undefined} size={52} className="rounded-2xl border-2 border-white shadow-sm ring-1 ring-[hsl(var(--border))]/50" />
           <div className={cn(
             "absolute -bottom-1 -right-1 h-4 w-4 rounded-full border-2 border-white shadow-sm",
             isActive ? "bg-emerald-500" : "bg-slate-300"
@@ -175,7 +175,7 @@ function TeacherScheduleRow({
         <div className="min-w-0 flex-1">
           <div className="truncate font-bold text-[hsl(var(--foreground))]">{teacher.fullName}</div>
           <div className="mt-0.5 flex items-center gap-2">
-            <Badge tone={isActive ? "success" : "secondary"} className="text-[10px] h-5 px-2 font-bold uppercase tracking-wider">
+            <Badge tone={isActive ? "success" : "neutral"} className="text-[10px] h-5 px-2 font-bold uppercase tracking-wider">
               {isActive ? t('active') : t('available')}
             </Badge>
           </div>
@@ -228,7 +228,7 @@ function ScheduleBlock({ session, showDay, tDays }: { session: ScheduleSession; 
           <span className="truncate text-sm font-bold">{session.subject}</span>
         </div>
         {showDay && (
-          <Badge variant="outline" className="text-[10px] h-5 font-bold uppercase tracking-wider bg-[hsl(var(--muted))]/30 border-none">
+          <Badge className="text-[10px] h-5 font-bold uppercase tracking-wider bg-[hsl(var(--muted))]/30 border-none">
             {tDays(session.day)}
           </Badge>
         )}
