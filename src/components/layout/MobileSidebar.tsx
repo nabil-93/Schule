@@ -68,11 +68,10 @@ export function MobileSidebar() {
             />
           )}
 
-          {/* Sidebar Panel */}
           <div
             className={cn(
-              'fixed inset-y-0 start-0 z-50 w-72 max-w-[80vw] transform flex-col bg-[hsl(var(--card))] shadow-xl transition-transform duration-300 ease-in-out flex border-e',
-              open ? 'translate-x-0' : '-translate-x-full'
+              'fixed inset-y-0 start-0 z-50 w-72 max-w-[80vw] transform flex-col bg-[hsl(var(--card))] shadow-xl transition-transform duration-300 ease-in-out flex border-e lg:hidden',
+              open ? 'translate-x-0' : 'ltr:-translate-x-full rtl:translate-x-full'
             )}
           >
             <div className="flex h-16 items-center justify-between gap-3 px-6 border-b shrink-0">
