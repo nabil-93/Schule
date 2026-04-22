@@ -14,6 +14,8 @@ interface ChartContainerProps {
   defaultType?: ChartType;
   defaultRange?: TimeRange;
   availableTypes?: ChartType[];
+  onRangeChange?: (range: TimeRange) => void;
+  activeRange?: TimeRange;
 }
 
 export function ChartContainer({
@@ -23,9 +25,18 @@ export function ChartContainer({
   defaultType = 'bar',
   defaultRange = '6m',
   availableTypes = ['bar', 'line', 'area'],
+  onRangeChange,
+  activeRange,
 }: ChartContainerProps) {
   const [type, setType] = useState<ChartType>(defaultType);
-  const [range, setRange] = useState<TimeRange>(defaultRange);
+  const [internalRange, setInternalRange] = useState<TimeRange>(defaultRange);
+  const range = activeRange ?? internalRange;
+  
+  const handleRangeChange = (r: TimeRange) => {
+    if (onRangeChange) onRangeChange(r);
+    else setInternalRange(r);
+  };
+
   const t = useTranslations('overview.charts');
 
   const ranges: { value: TimeRange; label: string }[] = [
@@ -86,7 +97,7 @@ export function ChartContainer({
             {ranges.map((r) => (
               <button
                 key={r.value}
-                onClick={() => setRange(r.value)}
+                onClick={() => handleRangeChange(r.value)}
                 className={cn(
                   'px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider transition-all rounded-md',
                   range === r.value

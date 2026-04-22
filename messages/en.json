@@ -60,6 +60,12 @@
       "mentions": {
         "title": "Student performance",
         "subtitle": "Mention distribution"
+      },
+      "periods": {
+        "7d": "Last 7 days",
+        "30d": "Last 30 days",
+        "6m": "Last 6 months",
+        "1y": "Last year"
       }
     },
     "activity": {
@@ -600,6 +606,47 @@
         "expenses": "Expenses",
         "net": "Net",
         "collectionRate": "Collection"
+      }
+    },
+    "paymentsManager": {
+      "kpis": {
+        "totalStudents": "Total students",
+        "paid": "Paid",
+        "unpaid": "Unpaid",
+        "collectionRate": "Collection rate"
+      },
+      "filters": {
+        "search": "Search student…",
+        "class": "All classes",
+        "month": "Select month",
+        "status": {
+          "all": "All",
+          "paid": "✅ Paid",
+          "unpaid": "❌ Unpaid"
+        }
+      },
+      "table": {
+        "columns": {
+          "student": "Student",
+          "class": "Class",
+          "status": "Status",
+          "amount": "Amount",
+          "actions": "Actions"
+        },
+        "status": {
+          "paid": "Paid",
+          "unpaid": "Unpaid"
+        },
+        "actions": {
+          "invoice": "Invoice",
+          "cancel": "Cancel",
+          "markPaid": "Mark paid"
+        },
+        "empty": "No students found"
+      },
+      "confirm": {
+        "cancelTitle": "Cancel payment",
+        "cancelMessage": "Are you sure you want to cancel the payment for {name} for {month}? The invoice will be marked as cancelled."
       }
     },
     "expenses": {

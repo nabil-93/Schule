@@ -68,6 +68,8 @@ export function buildOverviewKpis(
   let overdueCount = 0;
   let pendingCount = 0;
   for (const inv of invoices) {
+    if (inv.status === 'cancelled') continue; // Skip cancelled invoices
+    
     if (inv.status === 'paid') {
       revenueAllPaid += inv.amount;
       const ref = inv.paidAt ?? inv.issuedAt;
@@ -133,13 +135,12 @@ export function buildMonthlyPayments(
   }
 
   for (let i = steps - 1; i >= 0; i--) {
-    let d: Date;
     let key: string;
     if (unit === 'month') {
-      d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() - i, 1));
+      const d = new Date(Date.UTC(now.getFullYear(), now.getMonth() - i, 1));
       key = `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}`;
     } else {
-      d = new Date(now.getTime() - i * 24 * 60 * 60 * 1000);
+      const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - i);
       key = d.toISOString().split('T')[0];
     }
     buckets[key] = { month: key, paid: 0, pending: 0, overdue: 0 };
@@ -147,6 +148,8 @@ export function buildMonthlyPayments(
   }
 
   for (const inv of invoices) {
+    if (inv.status === 'cancelled') continue; // Skip cancelled invoices in payments chart
+    
     const ref = inv.status === 'paid' ? inv.paidAt ?? inv.issuedAt : inv.issuedAt;
     if (!ref) continue;
     const key = unit === 'month' ? monthKey(ref) : ref.split('T')[0];

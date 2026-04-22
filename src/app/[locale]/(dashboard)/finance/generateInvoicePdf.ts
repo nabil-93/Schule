@@ -11,22 +11,105 @@ export interface InvoicePdfData {
   amount: number;
   paidAt: string; // ISO date
   invoiceId: string;
+  locale?: string;
 }
 
-const MONTHS_FR = [
-  'Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin',
-  'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre',
-];
+const MONTHS: Record<string, string[]> = {
+  de: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+  fr: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+  en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  ar: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر']
+};
 
-function monthLabel(month: string): string {
+const LABELS: Record<string, any> = {
+  de: {
+    invoice: 'RECHNUNG',
+    date: 'Datum',
+    studentInfo: 'SCHÜLERINFORMATIONEN',
+    name: 'Vollständiger Name',
+    class: 'Klasse',
+    paymentDetails: 'ZAHLUNGSDETAILS',
+    period: 'Zeitraum',
+    paymentDate: 'Zahlungsdatum',
+    description: 'BESCHREIBUNG',
+    amount: 'BETRAG HT',
+    service: 'Monatliche Schulgebühren',
+    subtotal: 'Zwischensumme',
+    tax: 'MwSt. (0%)',
+    total: 'GESAMT TTC',
+    paid: 'BEZAHLT',
+    ref: 'Referenz',
+    footer: 'Automatisch generiertes Dokument. Keine Unterschrift erforderlich.'
+  },
+  fr: {
+    invoice: 'FACTURE',
+    date: 'Date',
+    studentInfo: 'INFORMATIONS ÉLÈVE',
+    name: 'Nom complet',
+    class: 'Classe',
+    paymentDetails: 'DÉTAILS DU PAIEMENT',
+    period: 'Période',
+    paymentDate: 'Date de paiement',
+    description: 'DESCRIPTION',
+    amount: 'MONTANT HT',
+    service: 'Frais de scolarité mensuels',
+    subtotal: 'Sous-total',
+    tax: 'TVA (0%)',
+    total: 'TOTAL TTC',
+    paid: 'PAYÉ',
+    ref: 'Référence',
+    footer: 'Document généré automatiquement. Ne nécessite pas de signature.'
+  },
+  en: {
+    invoice: 'INVOICE',
+    date: 'Date',
+    studentInfo: 'STUDENT INFORMATION',
+    name: 'Full Name',
+    class: 'Class',
+    paymentDetails: 'PAYMENT DETAILS',
+    period: 'Period',
+    paymentDate: 'Payment Date',
+    description: 'DESCRIPTION',
+    amount: 'AMOUNT HT',
+    service: 'Monthly School Fees',
+    subtotal: 'Subtotal',
+    tax: 'VAT (0%)',
+    total: 'TOTAL TTC',
+    paid: 'PAID',
+    ref: 'Reference',
+    footer: 'Automatically generated document. No signature required.'
+  },
+  ar: {
+    invoice: 'فاتورة',
+    date: 'التاريخ',
+    studentInfo: 'معلومات الطالب',
+    name: 'الاسم الكامل',
+    class: 'الفصل',
+    paymentDetails: 'تفاصيل الدفع',
+    period: 'الفترة',
+    paymentDate: 'تاريخ الدفع',
+    description: 'الوصف',
+    amount: 'المبلغ',
+    service: 'الرسوم المدرسية الشهرية',
+    subtotal: 'المجموع الفرعي',
+    tax: 'الضريبة (0٪)',
+    total: 'الإجمالي',
+    paid: 'مدفوع',
+    ref: 'المرجع',
+    footer: 'وثيقة تم إنشاؤها تلقائياً. لا تتطلب توقيعاً.'
+  }
+};
+
+function monthLabel(month: string, locale = 'de'): string {
   const [y, m] = month.split('-');
-  return `${MONTHS_FR[Number(m) - 1] ?? m} ${y}`;
+  const list = MONTHS[locale] || MONTHS.en;
+  return `${list[Number(m) - 1] ?? m} ${y}`;
 }
 
-function formatDateFr(iso: string): string {
+function formatDate(iso: string, locale = 'de'): string {
   try {
     const d = new Date(iso);
-    return `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`;
+    return new Intl.DateTimeFormat(locale).format(d);
   } catch {
     return iso;
   }
@@ -58,6 +141,7 @@ export function downloadInvoicePdf(data: InvoicePdfData) {
   const ML = 18;
   const MR = 18;
   const CW = W - ML - MR;
+  const L = LABELS[data.locale || 'de'] || LABELS.en;
 
   // Header background bar (Professional Gradient-like look)
   doc.setFillColor(15, 23, 42); // slate-900
@@ -97,17 +181,17 @@ export function downloadInvoicePdf(data: InvoicePdfData) {
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(11);
-  doc.text('FACTURE', W - MR - 25, 20, { align: 'center' });
+  doc.text(L.invoice, W - MR - 25, 20, { align: 'center' });
 
   // Invoice number
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8);
   doc.setTextColor(148, 163, 184);
-  const invoiceNo = `N${String.fromCharCode(176)} ${data.invoiceId.slice(0, 8).toUpperCase()}`;
+  const invoiceNo = `${L.ref} ${data.invoiceId.slice(0, 8).toUpperCase()}`;
   doc.text(invoiceNo, W - MR, 32, { align: 'right' });
 
   // Date
-  doc.text(`Date: ${formatDateFr(new Date().toISOString())}`, W - MR, 38, { align: 'right' });
+  doc.text(`${L.date}: ${formatDate(new Date().toISOString(), data.locale)}`, W - MR, 38, { align: 'right' });
 
   // ═══════════════════════════════════════════════════
   //  SECTION: Student & Payment Info (two columns)
@@ -123,7 +207,7 @@ export function downloadInvoicePdf(data: InvoicePdfData) {
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(8);
   doc.setTextColor(100, 116, 139); // slate-500
-  doc.text('INFORMATIONS ELEVE', ML + 8, y + 10);
+  doc.text(L.studentInfo, ML + 8, y + 10);
 
   doc.setDrawColor(226, 232, 240);
   doc.line(ML + 8, y + 13, ML + CW / 2 - 12, y + 13);
@@ -131,7 +215,7 @@ export function downloadInvoicePdf(data: InvoicePdfData) {
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9);
   doc.setTextColor(100, 116, 139);
-  doc.text('Nom complet', ML + 8, y + 22);
+  doc.text(L.name, ML + 8, y + 22);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(15, 23, 42);
   doc.setFontSize(11);
@@ -140,7 +224,7 @@ export function downloadInvoicePdf(data: InvoicePdfData) {
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9);
   doc.setTextColor(100, 116, 139);
-  doc.text('Classe', ML + 8, y + 39);
+  doc.text(L.class, ML + 8, y + 39);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(15, 23, 42);
   doc.setFontSize(11);
@@ -157,7 +241,7 @@ export function downloadInvoicePdf(data: InvoicePdfData) {
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(8);
   doc.setTextColor(100, 116, 139);
-  doc.text('DETAILS DU PAIEMENT', rx + 8, y + 10);
+  doc.text(L.paymentDetails, rx + 8, y + 10);
 
   doc.setDrawColor(226, 232, 240);
   doc.line(rx + 8, y + 13, rx + rw - 8, y + 13);
@@ -165,20 +249,20 @@ export function downloadInvoicePdf(data: InvoicePdfData) {
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9);
   doc.setTextColor(100, 116, 139);
-  doc.text('Periode', rx + 8, y + 22);
+  doc.text(L.period, rx + 8, y + 22);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(15, 23, 42);
   doc.setFontSize(11);
-  doc.text(monthLabel(data.month), rx + 8, y + 29);
+  doc.text(monthLabel(data.month, data.locale), rx + 8, y + 29);
 
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9);
   doc.setTextColor(100, 116, 139);
-  doc.text('Date de paiement', rx + 8, y + 39);
+  doc.text(L.paymentDate, rx + 8, y + 39);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(15, 23, 42);
   doc.setFontSize(11);
-  doc.text(formatDateFr(data.paidAt), rx + 8, y + 46);
+  doc.text(formatDate(data.paidAt, data.locale), rx + 8, y + 46);
 
   // ═══════════════════════════════════════════════════
   //  SECTION: Invoice table
@@ -191,9 +275,9 @@ export function downloadInvoicePdf(data: InvoicePdfData) {
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(8);
-  doc.text('DESCRIPTION', ML + 8, y + 7);
-  doc.text('PERIODE', ML + CW * 0.45, y + 7);
-  doc.text('MONTANT HT', W - MR - 8, y + 7, { align: 'right' });
+  doc.text(L.description, ML + 8, y + 7);
+  doc.text(L.period.toUpperCase(), ML + CW * 0.45, y + 7);
+  doc.text(L.amount, W - MR - 8, y + 7, { align: 'right' });
 
   // Table row
   y += 10;
@@ -205,10 +289,10 @@ export function downloadInvoicePdf(data: InvoicePdfData) {
   doc.setTextColor(30, 41, 59);
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(10);
-  doc.text('Frais de scolarite mensuel', ML + 8, y + 9);
+  doc.text(L.service, ML + 8, y + 9);
   doc.setTextColor(100, 116, 139);
   doc.setFontSize(9);
-  doc.text(monthLabel(data.month), ML + CW * 0.45, y + 9);
+  doc.text(monthLabel(data.month, data.locale), ML + CW * 0.45, y + 9);
   doc.setTextColor(15, 23, 42);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(10);
@@ -220,14 +304,14 @@ export function downloadInvoicePdf(data: InvoicePdfData) {
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9);
   doc.setTextColor(100, 116, 139);
-  doc.text('Sous-total', W - MR - 60, y + 5);
+  doc.text(L.subtotal, W - MR - 60, y + 5);
   doc.setTextColor(30, 41, 59);
   doc.text(formatEuro(data.amount), W - MR - 8, y + 5, { align: 'right' });
 
   // TVA
   y += 8;
   doc.setTextColor(100, 116, 139);
-  doc.text('TVA (0%)', W - MR - 60, y + 5);
+  doc.text(L.tax, W - MR - 60, y + 5);
   doc.setTextColor(30, 41, 59);
   doc.text(formatEuro(0), W - MR - 8, y + 5, { align: 'right' });
 
@@ -242,7 +326,7 @@ export function downloadInvoicePdf(data: InvoicePdfData) {
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(9);
-  doc.text('TOTAL TTC', W - MR - 62, y + 11);
+  doc.text(L.total, W - MR - 62, y + 11);
   doc.setFontSize(12);
   doc.text(formatEuro(data.amount), W - MR - 5, y + 11, { align: 'right' });
 
@@ -251,7 +335,7 @@ export function downloadInvoicePdf(data: InvoicePdfData) {
   // ═══════════════════════════════════════════════════
   y += 28;
   
-  // Green paid badge
+  // Stamp
   doc.setFillColor(220, 252, 231); // green-100
   roundRect(doc, ML, y, 70, 22, 3, 'F');
   doc.setDrawColor(34, 197, 94);   // green-500
@@ -261,13 +345,13 @@ export function downloadInvoicePdf(data: InvoicePdfData) {
   doc.setTextColor(22, 101, 52);    // green-800
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(14);
-  doc.text('PAYE', ML + 35, y + 14, { align: 'center' });
+  doc.text(L.paid, ML + 35, y + 14, { align: 'center' });
 
   // Method & Reference
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8);
   doc.setTextColor(100, 116, 139);
-  doc.text(`Reference: ${data.invoiceId.slice(0, 12).toUpperCase()}`, ML + 75, y + 14);
+  doc.text(`${L.ref}: ${data.invoiceId.slice(0, 12).toUpperCase()}`, ML + 75, y + 14);
 
   // ═══════════════════════════════════════════════════
   //  FOOTER
@@ -282,8 +366,8 @@ export function downloadInvoicePdf(data: InvoicePdfData) {
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(7);
   doc.text(data.schoolName, ML, H - 23);
-  doc.text('Document genere automatiquement. Ne necessite pas de signature.', ML, H - 18);
-  doc.text(`Genere le ${formatDateFr(new Date().toISOString())}`, W - MR, H - 18, { align: 'right' });
+  doc.text(L.footer, ML, H - 18);
+  doc.text(`${L.date}: ${formatDate(new Date().toISOString(), data.locale)}`, W - MR, H - 18, { align: 'right' });
 
   // Bottom accent bar
   doc.setFillColor(59, 130, 246);

@@ -89,8 +89,8 @@ export async function createInvoice(input: InvoiceInput): Promise<ActionResult> 
     await notifyParentsOf(input.studentId, {
       category: 'system',
       type: 'info',
-      title: '💳 Nouvelle facture',
-      message: `Une nouvelle facture de ${input.amount} DH a été émise.`,
+      title: '💳 Neue Rechnung',
+      message: `Eine neue Rechnung über ${input.amount} € wurde ausgestellt.`,
       link: '/finance',
     });
   } catch (e) {
@@ -333,7 +333,7 @@ export async function markMonthlyPaid(
       due_date: dueDate,
       paid_at: today,
       status: 'paid',
-      note: `Paiement mensuel ${month}`,
+      note: `Monatliche Zahlung ${month}`,
       created_by: gate.user.id,
     })
     .select('id')
@@ -365,8 +365,8 @@ export async function markMonthlyPaid(
     await notifyParentsOf(studentId, {
       category: 'system',
       type: 'success',
-      title: '✅ Paiement enregistré',
-      message: `Le paiement de ${amount} EUR pour ${month} a été enregistré.`,
+      title: '✅ Zahlung registriert',
+      message: `Die Zahlung von ${amount} € für ${month} wurde registriert.`,
       link: `/students/${studentId}`,
     });
   } catch (e) {
@@ -389,19 +389,21 @@ export async function cancelMonthlyPayment(
 
   const supabase = await createClient();
 
-  // Delete payments linked to this invoice first
-  await supabase.from('payments').delete().eq('invoice_id', invoiceId);
-
-  const { error } = await supabase.from('invoices').delete().eq('id', invoiceId);
+  // Update status to 'cancelled' instead of deleting to preserve history and show in dashboard activity
+  const { error } = await supabase
+    .from('invoices')
+    .update({ status: 'cancelled', updated_at: new Date().toISOString() })
+    .eq('id', invoiceId);
+    
   if (error) return { ok: false, error: error.message };
 
   await logActivity({
     actorId: gate.user.id,
     actorRole: gate.user.profile.role,
-    actionType: 'invoice_delete',
+    actionType: 'invoice_update', // Changed from delete to update
     entityType: 'invoice',
     entityId: invoiceId,
-    metadata: { is_monthly_cancel: true },
+    metadata: { is_monthly_cancel: true, status: 'cancelled' },
   });
 
   revalidatePath('/[locale]/(dashboard)/finance', 'page');

@@ -105,6 +105,14 @@ export function OverviewClient({
     () => buildGradeDistribution(students, exams, results),
     [students, exams, results],
   );
+
+  const paymentSubtitle = useMemo(() => {
+    return t(`charts.periods.${paymentRange}`);
+  }, [paymentRange, t]);
+
+  const subjectSubtitle = useMemo(() => {
+    return t(`charts.periods.${subjectRange}`);
+  }, [subjectRange, t]);
   const activity = useMemo(
     () => buildRecentActivity(students, invoices, exams, 12),
     [students, invoices, exams],
@@ -200,12 +208,12 @@ export function OverviewClient({
           <CardContent className="p-6">
             <ChartContainer
               title={t('charts.payments.title')}
-              subtitle={t('charts.payments.subtitle')}
-              defaultRange={paymentRange}
+              subtitle={paymentSubtitle}
+              activeRange={paymentRange}
+              onRangeChange={setPaymentRange}
               availableTypes={['bar', 'line', 'area']}
             >
-              {({ type, range }) => {
-                if (range !== paymentRange) setPaymentRange(range);
+              {({ type }) => {
                 return invoices.length === 0 ? (
                   <EmptyState icon={Wallet} title={t('empty.payments')} />
                 ) : (
@@ -255,7 +263,9 @@ export function OverviewClient({
           <CardContent className="p-6">
             <ChartContainer
               title={t('charts.subjects.title')}
-              subtitle={t('charts.subjects.subtitle')}
+              subtitle={subjectSubtitle}
+              activeRange={subjectRange}
+              onRangeChange={setSubjectRange}
               availableTypes={['bar', 'line']}
             >
               {({ type }) => (

@@ -60,6 +60,12 @@
       "mentions": {
         "title": "Schülerleistung",
         "subtitle": "Verteilung der Prädikate"
+      },
+      "periods": {
+        "7d": "Letzte 7 Tage",
+        "30d": "Letzte 30 Tage",
+        "6m": "Letzte 6 Monate",
+        "1y": "Letztes Jahr"
       }
     },
     "activity": {
@@ -598,6 +604,47 @@
         "expenses": "Ausgaben",
         "net": "Netto",
         "collectionRate": "Einziehung"
+      }
+    },
+    "paymentsManager": {
+      "kpis": {
+        "totalStudents": "Gesamt Schüler",
+        "paid": "Bezahlt",
+        "unpaid": "Nicht bezahlt",
+        "collectionRate": "Einziehungsrate"
+      },
+      "filters": {
+        "search": "Schüler suchen…",
+        "class": "Alle Klassen",
+        "month": "Mona auswählen",
+        "status": {
+          "all": "Alle",
+          "paid": "✅ Bezahlt",
+          "unpaid": "❌ Nicht bezahlt"
+        }
+      },
+      "table": {
+        "columns": {
+          "student": "Schüler",
+          "class": "Klasse",
+          "status": "Status",
+          "amount": "Betrag",
+          "actions": "Aktionen"
+        },
+        "status": {
+          "paid": "Bezahlt",
+          "unpaid": "Nicht bezahlt"
+        },
+        "actions": {
+          "invoice": "Rechnung",
+          "cancel": "Stornieren",
+          "markPaid": "Als bezahlt markieren"
+        },
+        "empty": "Kein Schüler gefunden"
+      },
+      "confirm": {
+        "cancelTitle": "Zahlung stornieren",
+        "cancelMessage": "Möchten Sie die Zahlung von {name} für {month} wirklich stornieren? Die Rechnung wird als storniert markiert."
       }
     },
     "expenses": {

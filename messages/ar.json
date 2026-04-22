@@ -60,6 +60,12 @@
       "mentions": {
         "title": "أداء الطلاب",
         "subtitle": "توزيع التقديرات"
+      },
+      "periods": {
+        "7d": "آخر 7 أيام",
+        "30d": "آخر 30 يومًا",
+        "6m": "آخر 6 أشهر",
+        "1y": "السنة الماضية"
       }
     },
     "activity": {
@@ -600,6 +606,47 @@
         "expenses": "المصاريف",
         "net": "الصافي",
         "collectionRate": "التحصيل"
+      }
+    },
+    "paymentsManager": {
+      "kpis": {
+        "totalStudents": "إجمالي الطلاب",
+        "paid": "تم الدفع",
+        "unpaid": "غير مدفوع",
+        "collectionRate": "معدل التحصيل"
+      },
+      "filters": {
+        "search": "بحث عن طالب…",
+        "class": "كل الفصول",
+        "month": "اختر الشهر",
+        "status": {
+          "all": "الكل",
+          "paid": "✅ تم الدفع",
+          "unpaid": "❌ غير مدفوع"
+        }
+      },
+      "table": {
+        "columns": {
+          "student": "الطالب",
+          "class": "الفصل",
+          "status": "الحالة",
+          "amount": "المبلغ",
+          "actions": "الإجراءات"
+        },
+        "status": {
+          "paid": "مدفوع",
+          "unpaid": "غير مدفوع"
+        },
+        "actions": {
+          "invoice": "فاتورة",
+          "cancel": "إلغاء",
+          "markPaid": "تحديد كمدفوع"
+        },
+        "empty": "لم يتم العثور على طلاب"
+      },
+      "confirm": {
+        "cancelTitle": "إلغاء الدفع",
+        "cancelMessage": "هل أنت متأكد من إلغاء دفع {name} لشهر {month}؟ سيتم وضع علامة ملغاة على الفاتورة."
       }
     },
     "expenses": {

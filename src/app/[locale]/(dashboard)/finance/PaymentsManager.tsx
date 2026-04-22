@@ -208,6 +208,7 @@ export function PaymentsManager({
       amount: row.invoice.amount,
       paidAt: row.invoice.paidAt ?? row.invoice.issuedAt,
       invoiceId: row.invoice.id,
+      locale,
     });
   };
 
@@ -253,25 +254,25 @@ export function PaymentsManager({
         <KpiTile
           icon={<Users className="h-4 w-4" />}
           tone="brand"
-          label="Total élèves"
+          label={t('paymentsManager.kpis.totalStudents')}
           value={String(kpis.total)}
         />
         <KpiTile
           icon={<CheckCircle2 className="h-4 w-4" />}
           tone="success"
-          label="Payés"
+          label={t('paymentsManager.kpis.paid')}
           value={`${kpis.paid} (${fmt(kpis.paidAmount)})`}
         />
         <KpiTile
           icon={<AlertCircle className="h-4 w-4" />}
           tone="danger"
-          label="Impayés"
+          label={t('paymentsManager.kpis.unpaid')}
           value={String(kpis.unpaid)}
         />
         <KpiTile
           icon={<Wallet className="h-4 w-4" />}
           tone="warning"
-          label="Taux de recouvrement"
+          label={t('paymentsManager.kpis.collectionRate')}
           value={pct.format(kpis.rate)}
         />
       </div>
@@ -286,7 +287,7 @@ export function PaymentsManager({
               type="search"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Rechercher un élève…"
+              placeholder={t('paymentsManager.filters.search')}
               className="h-10 w-full rounded-lg border bg-[hsl(var(--background))] pe-4 ps-10 text-sm placeholder:text-[hsl(var(--muted-foreground))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
             />
           </label>
@@ -296,9 +297,9 @@ export function PaymentsManager({
             className="lg:col-span-3"
             value={classFilter}
             onChange={(e) => setClassFilter(e.target.value)}
-            aria-label="Filtrer par classe"
+            aria-label={t('paymentsManager.filters.class')}
           >
-            <option value="">Toutes les classes</option>
+            <option value="">{t('paymentsManager.filters.class')}</option>
             {initialClasses.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.name}
@@ -311,7 +312,7 @@ export function PaymentsManager({
             className="lg:col-span-3"
             value={selectedMonth}
             onChange={(e) => setSelectedMonth(e.target.value)}
-            aria-label="Filtrer par mois"
+            aria-label={t('paymentsManager.filters.month')}
           >
             {months.map((m) => (
               <option key={m} value={m}>
@@ -325,11 +326,11 @@ export function PaymentsManager({
             className="lg:col-span-2"
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value as '' | 'paid' | 'unpaid')}
-            aria-label="Filtrer par statut"
+            aria-label={t('paymentsManager.filters.status.all')}
           >
-            <option value="">Tous</option>
-            <option value="paid">✅ Payés</option>
-            <option value="unpaid">❌ Impayés</option>
+            <option value="">{t('paymentsManager.filters.status.all')}</option>
+            <option value="paid">{t('paymentsManager.filters.status.paid')}</option>
+            <option value="unpaid">{t('paymentsManager.filters.status.unpaid')}</option>
           </Select>
         </div>
 
@@ -361,18 +362,18 @@ export function PaymentsManager({
       <Card className="overflow-hidden p-0">
         {filtered.length === 0 ? (
           <div className="p-6">
-            <EmptyState icon={Users} title="Aucun élève trouvé" />
+            <EmptyState icon={Users} title={t('paymentsManager.table.empty')} />
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead className="border-b bg-[hsl(var(--muted))]/40 text-xs uppercase tracking-wide text-[hsl(var(--muted-foreground))]">
                 <tr>
-                  <th className="px-4 py-3 text-start font-medium">Élève</th>
-                  <th className="hidden px-4 py-3 text-start font-medium md:table-cell">Classe</th>
-                  <th className="px-4 py-3 text-center font-medium">Statut</th>
-                  <th className="px-4 py-3 text-end font-medium">Montant</th>
-                  <th className="px-4 py-3 text-end font-medium">Actions</th>
+                  <th className="px-4 py-3 text-start font-medium">{t('paymentsManager.table.columns.student')}</th>
+                  <th className="hidden px-4 py-3 text-start font-medium md:table-cell">{t('paymentsManager.table.columns.class')}</th>
+                  <th className="px-4 py-3 text-center font-medium">{t('paymentsManager.table.columns.status')}</th>
+                  <th className="px-4 py-3 text-end font-medium">{t('paymentsManager.table.columns.amount')}</th>
+                  <th className="px-4 py-3 text-end font-medium">{t('paymentsManager.table.columns.actions')}</th>
                 </tr>
               </thead>
               <tbody className="divide-y">
@@ -409,12 +410,12 @@ export function PaymentsManager({
                         {isPaid ? (
                           <Badge tone="success">
                             <CheckCircle2 className="h-3 w-3" />
-                            Payé
+                            {t('paymentsManager.table.status.paid')}
                           </Badge>
                         ) : (
                           <Badge tone="danger">
                             <Clock className="h-3 w-3" />
-                            Impayé
+                            {t('paymentsManager.table.status.unpaid')}
                           </Badge>
                         )}
                       </td>
@@ -432,7 +433,7 @@ export function PaymentsManager({
                                 className="text-brand-700 hover:bg-brand-50 dark:text-brand-300 dark:hover:bg-brand-500/10"
                               >
                                 <Download className="h-4 w-4" />
-                                <span className="hidden sm:inline">Facture</span>
+                                <span className="hidden sm:inline">{t('paymentsManager.table.actions.invoice')}</span>
                               </Button>
                               <Button
                                 variant="ghost"
@@ -446,7 +447,7 @@ export function PaymentsManager({
                                 className="text-red-600 hover:bg-red-50 dark:hover:bg-red-500/10"
                               >
                                 <XCircle className="h-4 w-4" />
-                                <span className="hidden sm:inline">Annuler</span>
+                                <span className="hidden sm:inline">{t('paymentsManager.table.actions.cancel')}</span>
                               </Button>
                             </>
                           ) : (
@@ -457,7 +458,7 @@ export function PaymentsManager({
                               className="text-emerald-700 hover:bg-emerald-50 dark:text-emerald-300 dark:hover:bg-emerald-500/10"
                             >
                               <CheckCircle2 className="h-4 w-4" />
-                              <span className="hidden sm:inline">Marquer payé</span>
+                              <span className="hidden sm:inline">{t('paymentsManager.table.actions.markPaid')}</span>
                             </Button>
                           )}
                         </div>
@@ -474,8 +475,11 @@ export function PaymentsManager({
       {/* Cancel confirm */}
       <ConfirmDialog
         open={!!cancelTarget}
-        title="Annuler le paiement"
-        message={`Voulez-vous vraiment annuler le paiement de ${cancelTarget?.studentName ?? ''} pour ${monthLabel(selectedMonth, locale)} ? La facture sera supprimée.`}
+        title={t('paymentsManager.confirm.cancelTitle')}
+        message={t('paymentsManager.confirm.cancelMessage', { 
+          name: cancelTarget?.studentName ?? '', 
+          month: monthLabel(selectedMonth, locale) 
+        })}
         onClose={() => setCancelTarget(null)}
         onConfirm={handleCancelPayment}
       />
