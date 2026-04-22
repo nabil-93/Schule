@@ -9,6 +9,7 @@ import { Analytics } from '@vercel/analytics/react';
 import '../globals.css';
 
 import { getTranslations } from 'next-intl/server';
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
