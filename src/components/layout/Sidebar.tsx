@@ -8,7 +8,7 @@ import { useUnreadCounts } from '@/lib/hooks/useUnreadCounts';
 import { cn } from '@/lib/utils';
 import type { Role } from '@/types';
 
-type NavItem = {
+export type NavItem = {
   key: string;
   href: string;
   icon: typeof LayoutDashboard;
@@ -19,7 +19,7 @@ const STAFF: ReadonlyArray<Role> = ['director', 'admin'];
 const STAFF_AND_TEACHERS: ReadonlyArray<Role> = ['director', 'admin', 'teacher'];
 const ALL_ROLES: ReadonlyArray<Role> = ['director', 'admin', 'teacher', 'parent', 'student', 'staff'];
 
-const items: readonly NavItem[] = [
+export const items: readonly NavItem[] = [
   { key: 'overview', href: '/', icon: LayoutDashboard, roles: ALL_ROLES },
   { key: 'students', href: '/students', icon: Users, roles: STAFF_AND_TEACHERS },
   { key: 'teachers', href: '/teachers', icon: UserCog, roles: STAFF },

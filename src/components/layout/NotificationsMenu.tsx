@@ -258,14 +258,18 @@ export function NotificationsMenu() {
       </Button>
 
       {open && (
-        <div className="absolute end-0 z-50 mt-2 w-[22rem] max-w-[calc(100vw-1rem)] overflow-hidden rounded-xl border bg-[hsl(var(--card))] shadow-lg">
-          <div className="flex items-center justify-between border-b px-3 py-2.5">
-            <div>
-              <p className="text-sm font-semibold">{t('title')}</p>
-              {unread > 0 && (
-                <p className="text-xs text-[hsl(var(--muted-foreground))]">
-                  {unread} {t('unread')}
-                </p>
+        <>
+          {/* Mobile Overlay to capture outside clicks properly */}
+          <div className="fixed inset-0 z-40 sm:hidden" onClick={() => setOpen(false)} />
+          
+          <div className="absolute -end-2 sm:end-0 z-50 mt-2 w-[calc(100vw-1rem)] sm:w-[24rem] origin-top-right overflow-hidden rounded-xl border bg-[hsl(var(--card))] shadow-xl ring-1 ring-black/5 dark:ring-white/10 animate-in fade-in zoom-in-95 duration-200">
+            <div className="flex items-center justify-between border-b px-4 py-3 bg-[hsl(var(--muted))]/30 backdrop-blur-md">
+              <div>
+                <p className="text-sm font-bold tracking-tight">{t('title')}</p>
+                {unread > 0 && (
+                  <p className="text-xs font-medium text-brand-600 dark:text-brand-400 mt-0.5">
+                    {unread} {t('unread')}
+                  </p>
               )}
             </div>
             <div className="flex items-center gap-1">
@@ -364,6 +368,7 @@ export function NotificationsMenu() {
             )}
           </div>
         </div>
+        </>
       )}
     </div>
   );
