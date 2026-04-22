@@ -1,7 +1,8 @@
 {
   "app": {
     "name": "Schule",
-    "tagline": "Enterprise School Management Platform"
+    "tagline": "Enterprise School Management Platform",
+    "dashboardTitle": "School — Dashboard"
   },
   "nav": {
     "overview": "Overview",

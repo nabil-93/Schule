@@ -1,7 +1,8 @@
 {
   "app": {
     "name": "Schule",
-    "tagline": "Plateforme de gestion scolaire d'entreprise"
+    "tagline": "Plateforme de gestion scolaire d'entreprise",
+    "dashboardTitle": "École — Tableau de bord"
   },
   "nav": {
     "overview": "Aperçu",

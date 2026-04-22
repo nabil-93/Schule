@@ -7,12 +7,17 @@ import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { routing, type Locale } from '@/i18n/routing';
 import '../globals.css';
 
+import { getTranslations } from 'next-intl/server';
+
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
-export const metadata: Metadata = {
-  title: 'École — Tableau de Bord',
-  description: 'Enterprise-grade school management platform',
-};
+export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
+  const t = await getTranslations({ locale: params.locale, namespace: 'app' });
+  return {
+    title: t('dashboardTitle'),
+    description: t('tagline'),
+  };
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
