@@ -57,6 +57,38 @@ export function LoginForm({
     router.refresh();
   }
 
+  async function handleDemoLogin(demoEmail: string, demoPassword: string) {
+    setEmail(demoEmail);
+    setPassword(demoPassword);
+    setError(null);
+    setLoading(true);
+
+    const { error: signInError } = await supabase.auth.signInWithPassword({
+      email: demoEmail,
+      password: demoPassword,
+    });
+
+    if (signInError) {
+      setError(
+        signInError.message.toLowerCase().includes('invalid')
+          ? t('invalidCredentials')
+          : t('unexpectedError'),
+      );
+      setLoading(false);
+      return;
+    }
+
+    try {
+      await supabase.rpc('log_login', { p_user_agent: navigator.userAgent });
+    } catch {
+      // non-fatal
+    }
+
+    const target = redirectTo && redirectTo.startsWith('/') ? redirectTo : `/${locale}`;
+    router.replace(target);
+    router.refresh();
+  }
+
   return (
     <div className="relative z-10 w-full max-w-md">
       <div className="mb-6 flex flex-col items-center text-center">
@@ -133,6 +165,54 @@ export function LoginForm({
             )}
           </Button>
         </form>
+
+        <div className="mt-8 border-t pt-6">
+          <p className="mb-4 text-center text-[13px] font-medium text-[hsl(var(--muted-foreground))]">
+            {t('demo.title')}
+          </p>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              className="w-full border-brand-200/50 bg-brand-50/50 font-semibold text-brand-700 hover:border-brand-300 hover:bg-brand-50 dark:border-brand-500/20 dark:bg-brand-500/5 dark:text-brand-400 dark:hover:bg-brand-500/10"
+              onClick={() => handleDemoLogin('admin@demo.com', 'adminadmin')}
+              disabled={loading}
+            >
+              {t('demo.admin')}
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              className="w-full border-brand-200/50 bg-brand-50/50 font-semibold text-brand-700 hover:border-brand-300 hover:bg-brand-50 dark:border-brand-500/20 dark:bg-brand-500/5 dark:text-brand-400 dark:hover:bg-brand-500/10"
+              onClick={() => handleDemoLogin('lehrer@demo.com', 'lehrerlehrer')}
+              disabled={loading}
+            >
+              {t('demo.teacher')}
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              className="w-full border-brand-200/50 bg-brand-50/50 font-semibold text-brand-700 hover:border-brand-300 hover:bg-brand-50 dark:border-brand-500/20 dark:bg-brand-500/5 dark:text-brand-400 dark:hover:bg-brand-500/10"
+              onClick={() => handleDemoLogin('student@demo.com', 'student1')}
+              disabled={loading}
+            >
+              {t('demo.student')}
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              className="w-full border-brand-200/50 bg-brand-50/50 font-semibold text-brand-700 hover:border-brand-300 hover:bg-brand-50 dark:border-brand-500/20 dark:bg-brand-500/5 dark:text-brand-400 dark:hover:bg-brand-500/10"
+              onClick={() => handleDemoLogin('student-eltern@demo.com', 'elterneltern')}
+              disabled={loading}
+            >
+              {t('demo.parent')}
+            </Button>
+          </div>
+        </div>
       </div>
 
       <p className="mt-6 text-center text-xs text-[hsl(var(--muted-foreground))]">
