@@ -102,6 +102,19 @@
       "activity": "Nichts anzuzeigen"
     }
   },
+  "teacherSchedule": {
+    "title": "Lehrer-Stundenpläne",
+    "subtitle": "Wo sind die Lehrer gerade?",
+    "day": "Tag",
+    "week": "Woche",
+    "month": "Monat",
+    "active": "Aktiv",
+    "available": "Verfügbar",
+    "teacher": "Lehrer",
+    "subject": "Fach",
+    "room": "Raum",
+    "noSchedules": "Keine Stundenpläne für diesen Zeitraum gefunden."
+  },
   "roleOverview": {
     "teacher": {
       "greeting": "Willkommen, {name}",

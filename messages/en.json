@@ -102,6 +102,19 @@
       "activity": "Nothing to show yet"
     }
   },
+  "teacherSchedule": {
+    "title": "Teacher Schedules",
+    "subtitle": "Where are the teachers right now?",
+    "day": "Day",
+    "week": "Week",
+    "month": "Month",
+    "active": "Active",
+    "available": "Available",
+    "teacher": "Teacher",
+    "subject": "Subject",
+    "room": "Room",
+    "noSchedules": "No schedules found for this period."
+  },
   "roleOverview": {
     "teacher": {
       "greeting": "Welcome, {name}",

@@ -102,6 +102,19 @@
       "activity": "Rien à afficher"
     }
   },
+  "teacherSchedule": {
+    "title": "Emplois du temps des enseignants",
+    "subtitle": "Où sont les enseignants en ce moment ?",
+    "day": "Jour",
+    "week": "Semaine",
+    "month": "Mois",
+    "active": "Actif",
+    "available": "Disponible",
+    "teacher": "Enseignant",
+    "subject": "Matière",
+    "room": "Salle",
+    "noSchedules": "Aucun emploi du temps trouvé pour cette période."
+  },
   "roleOverview": {
     "teacher": {
       "greeting": "Bienvenue, {name}",

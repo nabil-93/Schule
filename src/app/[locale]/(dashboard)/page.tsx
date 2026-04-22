@@ -36,18 +36,24 @@ export default async function OverviewPage({
     let invoices: Invoice[] = [];
     let exams: Exam[] = [];
     let results: ExamResult[] = [];
+    let sessions: ScheduleSession[] = [];
+    let teachers: User[] = [];
     let loadError: string | null = null;
     try {
-      const [s, i, e, r] = await Promise.all([
+      const [s, i, e, r, sch, u] = await Promise.all([
         listStudents(supabase),
         listInvoices(supabase),
         listExams(supabase),
         listExamResults(supabase),
+        listAllSchedules(supabase),
+        listUsers(supabase),
       ]);
       students = s;
       invoices = i;
       exams = e;
       results = r;
+      sessions = sch;
+      teachers = u.filter((usr) => usr.role === 'teacher');
     } catch (err) {
       loadError = err instanceof Error ? err.message : 'load_failed';
     }
@@ -57,6 +63,8 @@ export default async function OverviewPage({
         invoices={invoices}
         exams={exams}
         results={results}
+        sessions={sessions}
+        teachers={teachers}
         loadError={loadError}
       />
     );

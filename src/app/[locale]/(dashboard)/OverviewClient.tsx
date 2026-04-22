@@ -36,20 +36,25 @@ import {
   type ActivityItem,
   type Mention,
 } from '@/lib/queries/overview';
-import type { ChartType, Exam, ExamResult, Invoice, Student, TimeRange } from '@/types';
+import type { ChartType, Exam, ExamResult, Invoice, Student, TimeRange, User, ScheduleSession } from '@/types';
 import { ChartContainer } from '@/components/charts/ChartContainer';
+import { TeacherScheduleDashboard } from './TeacherScheduleDashboard';
 
 export function OverviewClient({
   students: initialStudents,
   invoices: initialInvoices,
   exams: initialExams,
   results: initialResults,
+  sessions: initialSessions = [],
+  teachers: initialTeachers = [],
   loadError: initialError,
 }: {
   students: Student[];
   invoices: Invoice[];
   exams: Exam[];
   results: ExamResult[];
+  sessions?: ScheduleSession[];
+  teachers?: User[];
   loadError: string | null;
 }) {
   const t = useTranslations('overview');
@@ -62,6 +67,8 @@ export function OverviewClient({
   const [invoices, setInvoices] = useState<Invoice[]>(initialInvoices);
   const [exams, setExams] = useState<Exam[]>(initialExams);
   const [results, setResults] = useState<ExamResult[]>(initialResults);
+  const [sessions, setSessions] = useState<ScheduleSession[]>(initialSessions);
+  const [teachers, setTeachers] = useState<User[]>(initialTeachers as User[]);
   const [loadError, setLoadError] = useState<string | null>(initialError);
   const [reloading, startReload] = useTransition();
 
@@ -126,13 +133,15 @@ export function OverviewClient({
   const reload = useCallback(() => {
     startReload(async () => {
       const supabase = createClient();
-      const [sRes, iRes, eRes, rRes] = await Promise.all([
+      const [sRes, iRes, eRes, rRes, schRes, uRes] = await Promise.all([
         supabase.from('students').select(STUDENT_SELECT).order('created_at', { ascending: false }),
         supabase.from('invoices').select(INVOICE_SELECT).order('issued_at', { ascending: false }),
         supabase.from('exams').select(EXAM_SELECT).order('date', { ascending: false }),
         supabase.from('exam_results').select(EXAM_RESULT_SELECT),
+        supabase.from('course_schedules').select('*').order('start_time', { ascending: true }),
+        supabase.from('profiles').select('id, full_name, email, phone, avatar_url, role, is_director, created_at').order('created_at', { ascending: false }),
       ]);
-      const firstError = sRes.error ?? iRes.error ?? eRes.error ?? rRes.error;
+      const firstError = sRes.error ?? iRes.error ?? eRes.error ?? rRes.error ?? schRes.error ?? uRes.error;
       if (firstError) {
         setLoadError(firstError.message);
         return;
@@ -146,6 +155,24 @@ export function OverviewClient({
       setResults(
         (rRes.data as unknown as Parameters<typeof rowToResult>[0][]).map(rowToResult),
       );
+      setSessions((schRes.data as any[]).map(row => ({
+        id: row.id,
+        classId: row.class_id,
+        teacherId: row.teacher_id,
+        subject: row.subject,
+        day: row.day,
+        startTime: row.start_time,
+        endTime: row.end_time,
+        room: row.room || '',
+      })));
+      setTeachers((uRes.data as any[]).filter(u => u.role === 'teacher').map(u => ({
+        id: u.id,
+        fullName: u.full_name,
+        email: u.email,
+        phone: u.phone || '',
+        role: u.role,
+        avatarUrl: u.avatar_url,
+      } as User)));
     });
   }, []);
 
@@ -202,6 +229,13 @@ export function OverviewClient({
           tone="sky"
         />
       </div>
+
+      {teachers.length > 0 && (
+        <TeacherScheduleDashboard 
+          teachers={teachers} 
+          sessions={sessions} 
+        />
+      )}
 
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-3">
         <Card className="xl:col-span-2 overflow-hidden">
