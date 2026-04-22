@@ -57,8 +57,6 @@ export function MobileSidebar() {
         <Menu className="h-5 w-5" />
       </Button>
 
-      </Button>
-
       {/* Render Backdrop and Sidebar Panel in a Portal to escape the header's stacking context */}
       {mounted && createPortal(
         <>
